@@ -1,0 +1,9 @@
+.navigationBar {
+    background-color: #CCE9D6;
+}
+
+.nav-item {
+    font-size: large;
+    list-style-type: none;
+    margin-left: 30px;
+}
