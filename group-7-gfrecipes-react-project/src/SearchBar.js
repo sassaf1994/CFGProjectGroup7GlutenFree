@@ -17,7 +17,7 @@ function SearchBar() {
               aria-label="Search"
               aria-describedby="basic-addon2"
             />
-            <Button variant="success" id="button-addon2">
+            <Button className="searchButton" id="button-addon2">
               Search
             </Button>
           </InputGroup>

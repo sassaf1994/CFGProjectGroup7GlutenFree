@@ -7,3 +7,14 @@
     padding-bottom: 70px;
 
 }
+
+.searchButton {
+    background-color: #CCE9D6;
+    color: black;
+    border: 1px solid black;
+}
+
+.searchButton:hover {
+    background-color: #F8D2CF;
+    color: black;
+}

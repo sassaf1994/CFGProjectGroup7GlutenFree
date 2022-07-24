@@ -9,7 +9,7 @@ function Header() {
           <NavigationBar />
         </div>
         <div className="col-4">
-          <h1>Gluten Free Recipes</h1>
+          <h1 className="logo">Gluten Free Recipes</h1>
         </div>
       </div>
     </div>

@@ -1,9 +1,14 @@
 .navigationBar {
-    background-color: #CCE9D6;
+    background-color: #CCE9D6; 
+    padding-top: 0;
+    margin-top: 0px;
 }
 
 .nav-item {
     font-size: large;
     list-style-type: none;
     margin-left: 30px;
+    background-color: #F8D2CF;
+    padding: 20px;
+    border-radius: 25px;
 }
