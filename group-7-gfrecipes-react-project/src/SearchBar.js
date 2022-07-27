@@ -8,6 +8,7 @@ import "./SearchBar.css";
 function SearchBar() {
   return (
     <div className="searchBar">
+      <h1 className="title">GLUTEN FREE RECIPES</h1>
       {/* <div className="container"> */}
         <div className="row">
           <InputGroup className="col">

@@ -14,7 +14,9 @@ function RecipeView() {
               <Card.Body>
                 <Card.Title>Recipe Title</Card.Title>
                 <Card.Text>Recipe Description</Card.Text>
-                <Button variant="primary">Go to recipe</Button>
+                {/* <Button className="recipeButton" variant="primary">
+                  Go to recipe
+                </Button> */}
               </Card.Body>
             </Card>
           </div>
@@ -26,7 +28,9 @@ function RecipeView() {
               <Card.Body>
                 <Card.Title>Recipe Title</Card.Title>
                 <Card.Text>Recipe Description</Card.Text>
-                <Button variant="primary">Go to recipe</Button>
+                {/* <Button className="recipeButton" variant="primary">
+                  Go to recipe
+                </Button> */}
               </Card.Body>
             </Card>
           </div>
@@ -38,7 +42,9 @@ function RecipeView() {
               <Card.Body>
                 <Card.Title>Recipe Title</Card.Title>
                 <Card.Text>Recipe Description</Card.Text>
-                <Button variant="primary">Go to recipe</Button>
+                {/* <Button className="recipeButton" variant="primary">
+                  Go to recipe
+                </Button> */}
               </Card.Body>
             </Card>
           </div>
@@ -50,7 +56,9 @@ function RecipeView() {
               <Card.Body>
                 <Card.Title>Recipe Title</Card.Title>
                 <Card.Text>Recipe Description</Card.Text>
-                <Button variant="primary">Go to recipe</Button>
+                {/* <Button className="recipeButton" variant="primary">
+                  Go to recipe
+                </Button> */}
               </Card.Body>
             </Card>
           </div>

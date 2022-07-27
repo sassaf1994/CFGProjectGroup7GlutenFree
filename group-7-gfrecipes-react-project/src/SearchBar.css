@@ -17,4 +17,10 @@
 .searchButton:hover {
     background-color: #F8D2CF;
     color: black;
+    border: 1px solid black;
+}
+
+.title  {
+    padding-bottom: 20px;
+    font-size: 40px;
 }

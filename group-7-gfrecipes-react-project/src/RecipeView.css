@@ -2,3 +2,12 @@
     margin: 10px;
     margin-top: 50px;
 }
+
+.recipeView {
+    margin: 30px;
+}
+
+.recipeButton {
+    background-color: #CCE9D6;
+    color: black;
+}
