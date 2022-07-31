@@ -1,71 +1,43 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import testRecipeImg from "./test-image.png";
 import "./RecipeView.css";
 
-function RecipeView() {
+// TODO consider making name less ambiguous - this is not a single recipe view.
+function RecipeView(props) {
   return (
-    <div className="recipeView">
-      <div className="row">
-        <div className="col-3">
-          <div className="recipeCard">
-            <Card className="recipeCard" style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={testRecipeImg} />
-              <Card.Body>
-                <Card.Title>Recipe Title</Card.Title>
-                <Card.Text>Recipe Description</Card.Text>
-                {/* <Button className="recipeButton" variant="primary">
-                  Go to recipe
-                </Button> */}
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
-        <div className="col-3">
-          <div className="recipeCard">
-            <Card className="recipeCard" style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={testRecipeImg} />
-              <Card.Body>
-                <Card.Title>Recipe Title</Card.Title>
-                <Card.Text>Recipe Description</Card.Text>
-                {/* <Button className="recipeButton" variant="primary">
-                  Go to recipe
-                </Button> */}
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
-        <div className="col-3">
-          <div className="recipeCard">
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={testRecipeImg} />
-              <Card.Body>
-                <Card.Title>Recipe Title</Card.Title>
-                <Card.Text>Recipe Description</Card.Text>
-                {/* <Button className="recipeButton" variant="primary">
-                  Go to recipe
-                </Button> */}
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
-        <div className="col-3">
-          <div className="recipeCard">
-            <Card className="recipeCard" style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={testRecipeImg} />
-              <Card.Body>
-                <Card.Title>Recipe Title</Card.Title>
-                <Card.Text>Recipe Description</Card.Text>
-                {/* <Button className="recipeButton" variant="primary">
-                  Go to recipe
-                </Button> */}
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
+    <div className="container">
+      <div className="recipeView">
+        {props.data.map((singleRecipeData) => (
+          <RecipeCard
+            key={singleRecipeData._links.self.href}
+            recipeTitle={singleRecipeData.recipe.label}
+            recipeImage={singleRecipeData.recipe.image}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
 export default RecipeView;
+
+function RecipeCard(props) {
+  return (
+    <div style={{ display: "inline-block", margin: "1em" }}>
+      <div className="recipeCard">
+        <Card className="recipeCard" style={{ width: "16rem" }}>
+          <Card.Img variant="top" src={`${props.recipeImage}`} />
+          <Card.Body>
+            <div className="row">
+              <div className="col">
+                <Card.Title>{props.recipeTitle}</Card.Title>
+              </div>
+              <div className="col">
+                <Card.Text>⭐️ 3.7</Card.Text>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
+    </div>
+  );
+}

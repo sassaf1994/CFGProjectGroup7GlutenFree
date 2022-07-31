@@ -10,8 +10,8 @@ function Home() {
       <Header />
       <NavigationBar/>
       <SearchBar />
-      <RecipeView />
-      <RecipeView />
+      {/* <RecipeView />
+      <RecipeView /> */}
       <Footer />
     </div>
   );

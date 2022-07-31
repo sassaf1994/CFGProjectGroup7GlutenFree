@@ -5,7 +5,13 @@
     margin: auto;
     padding-top: 70px;
     padding-bottom: 70px;
+}
 
+#search-field {
+    background-color: #F8D2CF;
+    color: black;
+    font-weight: 600;
+    text-align: center;
 }
 
 .searchButton {

@@ -5,15 +5,7 @@ import logo from "./ProjectLogo.png";
 function Header() {
   return (
     <div className="header">
-      <div className="row">
-        <div className="col-4">
-        </div>
-        <div className="col-4 d-flex justify-content-center">
-          <img src={logo} alt="Easy Eats Logo"/>
-        </div>
-        <div className="col-4">
-        </div>
-      </div>
+      <img classname="logo" src={logo} alt="Easy Eats Logo" width={200} height={200} />
     </div>
   );
 }

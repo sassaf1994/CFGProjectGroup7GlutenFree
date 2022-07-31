@@ -1,11 +1,10 @@
 .header {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     background-color: #CCE9D6;
 }
 
 .logo {
-    padding: 5px;
-    background-color: #F8D2CF;
-    border-radius: 30px;
+   margin: 0 auto;
+   text-align: center;
 }
