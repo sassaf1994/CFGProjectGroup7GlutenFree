@@ -3,7 +3,6 @@ import "./Footer.css";
 function Footer() {
   return (
     <div className="footer">
-      <div className="footer navbar-fixed-bottom">
         <div className="row">
           <div className="col-4">
             <div className="row">
@@ -23,7 +22,6 @@ function Footer() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
