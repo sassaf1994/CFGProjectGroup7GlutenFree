@@ -25,8 +25,9 @@ def get_recipe(id):
     data_to_send = compile_single_result(data)
     return jsonify(data_to_send)
 
+# "79327d05b8e5b838ad6cfd9576b30b6" doesn't work
 
-# # get a review for a specific recipe
+# # get a review for a multiple recipe
 @app.route("/recipe/reviews", methods=["PUT"])
 def get_reviews():
     recipe_ids = request.get_json()

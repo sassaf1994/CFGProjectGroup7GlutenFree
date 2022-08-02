@@ -87,7 +87,7 @@ def compile_list_of_results(data):
 
 def compile_single_result(data):
     recipe_url = data["recipe"]["shareAs"]
-    matched = re.search("\d+\w+", recipe_url)
+    matched = re.search("\d+\w+", recipe_url) # needs to be looked at by Sarah
     id_number = matched.group()
     dictionary = {
         "Name": data["recipe"]["label"],
