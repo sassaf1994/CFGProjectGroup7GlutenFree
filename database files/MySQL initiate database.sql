@@ -9,7 +9,7 @@
 
 -- DELIMITER //
 
--- CREATE FUNCTION `retrieve_rating4` recipe_id VARCHAR(100), recipe_name VARCHAR(100)) RETURNS float
+-- CREATE FUNCTION `retrieve_rating4`(recipe_id VARCHAR(100), recipe_name VARCHAR(100)) RETURNS float
 --     DETERMINISTIC
 -- BEGIN
 -- DECLARE rating_calculated FLOAT(2);
