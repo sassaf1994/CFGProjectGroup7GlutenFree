@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap');
 body {
   margin: 0;
@@ -15,14 +14,12 @@ code {
     monospace;
 }
 
-.navbar{
-background-color: #F8D3CF;  
-margin-top: 1rem;
-padding: 1rem;
 
-position: fixed;
-bottom: 15px;
-left: 0;
-width: 100%;
-display: flex;
-}
+.header{
+    background-color: #CDE9D6;
+    }
+    
+    .logo{
+      width: 150px;
+      margin-left: 1095px;
+    }
