@@ -3,11 +3,12 @@ import {FaTwitter,FaInstagram, FaFacebook, FaPinterestP, FaArrowCircleUp} from '
 import './footer.css';
 import './scroll-arrow.js';
 
-
+//Scroll to Top Behaviour 
 const scrollTop = () =>{
   window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
+//Features of the footer
 const Footer = () => (
   <div className="footer">
  <p className="contact">Contact Us</p>
@@ -27,15 +28,11 @@ const Footer = () => (
 </div>
 
 <div className="top">
-
 <FaArrowCircleUp 
    className="scrollTop" 
-   onClick={scrollTop} 
-/>
-
+   onClick={scrollTop} />
 </div>
-
- </div>
+</div>
 );
 
 export default Footer;

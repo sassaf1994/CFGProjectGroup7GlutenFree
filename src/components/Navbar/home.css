@@ -1,8 +1,12 @@
+body{
+    background-color:F8F6F6 ;
+}
+
 .gluten-title{
     font-family: 'Bebas Neue', cursive;
-    font-size: 80px;
-    margin-left:870px;
+    font-size: 55px;
+    margin-left:940px;
     margin-bottom: 1px;
-   padding-top: 20px;
+   padding-top: 70px;
    padding-bottom: 60px;
 }

@@ -35,10 +35,20 @@ code {
   
   }
   
+  .contact:hover{
+    color: #F8D2CF;
+    cursor: pointer;
+  }
+  
   .policy{
     font-family: 'Barlow', sans-serif;
     margin-left: 50px;
     font-size: 20px;
+  }
+
+  .policy:hover{
+    color: #F8D2CF;
+    cursor: pointer;
   }
   
   .easyeats {
@@ -53,25 +63,52 @@ code {
     margin-left: 500px;
     font-size: 25px;
   }
+
+  .pinterest:hover{
+    color: #F8D2CF;
+    cursor: pointer;
+  }
   
   .insta{
     margin-top: 15px;
     margin-left: 25px;
     font-size: 25px;
   }
+
+  .insta:hover{
+    color: #F8D2CF;
+    cursor: pointer;
+  }
+
   .twitter{
     margin-top: 15px;
     margin-left: 25px;
     font-size: 25px;
   }
+
+  .twitter:hover{
+    color: #F8D2CF;
+    cursor: pointer;
+  }
+
   .facebook{
     margin-top: 15px;
     margin-left: 25px;
     font-size: 25px;
+  }
+
+  .facebook:hover{
+    color: #F8D2CF;
+    cursor: pointer;
   }
   
   .top{
     margin-top: 15px;
     margin-left: 300px;
     font-size: 25px;
+  }
+
+  .top:hover{
+    color: #F8D2CF;
+    cursor: pointer;
   }

@@ -1,7 +1,9 @@
 import Footer from "../Footer/footer";
 import Header from "../Header/header";
 import Navbar from "./navbar";
+import { Helmet } from "react-helmet";
 import './aboutus.css';
+
 
 function NewlineText(props) {
     const text = props.text;
@@ -13,6 +15,11 @@ function AboutUs() {
     return (
         <><><Header />
             <Navbar />
+            <Helmet>
+                <title> 
+                    EasyEats | About Us
+                    </title>
+            </Helmet>
             <Footer /></><><h1 className="about">
                 About Us
             </h1><div className="circle">
