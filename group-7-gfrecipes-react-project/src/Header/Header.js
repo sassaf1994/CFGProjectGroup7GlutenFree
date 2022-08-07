@@ -1,4 +1,3 @@
-import NavigationBar from "./NavigationBar";
 import "./Header.css";
 import logo from "./ProjectLogo.png";
 

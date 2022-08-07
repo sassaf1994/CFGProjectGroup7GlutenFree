@@ -8,9 +8,9 @@ function RecipeView(props) {
       <div className="recipeView">
         {props.data.map((singleRecipeData) => (
           <RecipeCard
-            key={singleRecipeData._links.self.href}
-            recipeTitle={singleRecipeData.recipe.label}
-            recipeImage={singleRecipeData.recipe.image}
+            key={singleRecipeData["Recipe ID"]}
+            recipeTitle={singleRecipeData["Name"]}
+            recipeImage={singleRecipeData["Image URL"]}
           />
         ))}
       </div>
