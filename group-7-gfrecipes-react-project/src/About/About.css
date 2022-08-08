@@ -1,27 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap");
 
 body {
-  background-color: F8F6F6;
+  background-color: #F8F6F6;
 }
 
 .about {
   font-family: "Bebas Neue", cursive;
-  font-size: 80px;
-  margin-left: 1050px;
-  margin-bottom: 1px;
-  margin-top: 100px;
+  font-size: 55px;
+  text-align: center;
   padding-top: 1px;
   padding-bottom: 25px;
 }
 
 .circle {
   background-color: #f8d2cf;
-  display: flex;
-  width: 600px;
-  height: 600px;
-  margin-top: 15px;
-  margin-left: 875px;
-  margin-top: 10px;
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+  height: 800px;
   bottom: 250px;
   top: 250px;
   border-radius: 50%;

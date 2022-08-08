@@ -2,7 +2,6 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import NavigationBar from "../Navigation/NavigationBar";
 import { Helmet } from "react-helmet";
-
 import "./Cookbook.css";
 
 function CookBook() {

@@ -4,8 +4,14 @@ import logo from "./ProjectLogo.png";
 function Header() {
   return (
     <div className="header">
-      <img classname="logo" src={logo} alt="Easy Eats Logo" width={200} height={200} />
-    </div>
+          <img
+            className="logo"
+            src={logo}
+            alt="Easy Eats Logo"
+            width={200}
+            height={200}
+          />
+      </div>
   );
 }
 

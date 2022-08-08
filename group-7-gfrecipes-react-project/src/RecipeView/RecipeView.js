@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
+import { Link, NavLink } from "react-router-dom";
 
 // TODO consider making name less ambiguous - this is not a single recipe view.
 function RecipeView(props) {
@@ -25,7 +26,14 @@ function RecipeCard(props) {
     <div style={{ display: "inline-block", margin: "1em" }}>
       <div className="recipeCard">
         <Card className="recipeCard" style={{ width: "16rem" }}>
-          <Card.Img variant="top" src={`${props.recipeImage}`} />
+          <Link
+            to="recipedetail"
+            key={props.key}
+            recipeTitle={props.recipeTitle}
+            recipeImage={props.recipeImage}
+          >
+            <Card.Img variant="top" src={`${props.recipeImage}`} />
+          </Link>
           <Card.Body>
             <div className="row">
               <div className="col">

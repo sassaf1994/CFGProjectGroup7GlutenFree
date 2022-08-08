@@ -14,17 +14,7 @@ code {
 }
 
 .logo {
-  width: 150px;
-  margin-left: 1095px;
+  display: block;
+  margin: 0 auto;
 }
 
-/* .header {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #CCE9D6;
-}
-
-.logo {
-   margin: 0 auto;
-   text-align: center;
-} */

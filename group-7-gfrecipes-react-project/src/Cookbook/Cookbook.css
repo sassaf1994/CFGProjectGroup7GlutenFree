@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap");
 body {
-  background-color: F8F6F6;
+  background-color: #F8F6F6;
 }
 
 .cookbook-title {
   font-family: "Bebas Neue", cursive;
   font-size: 55px;
-  margin-left: 940px;
+  text-align: center;
   padding-top: 75px;
   padding-bottom: 60px;
 }

@@ -4,9 +4,8 @@ body {
 
 .gluten-title {
   font-family: "Bebas Neue", cursive;
+  text-align: center;
   font-size: 55px;
-  margin-left: 940px;
-  margin-bottom: 1px;
+  margin: 0 auto;
   padding-top: 70px;
-  padding-bottom: 60px;
 }

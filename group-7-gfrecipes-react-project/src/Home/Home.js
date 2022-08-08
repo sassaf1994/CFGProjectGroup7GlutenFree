@@ -3,17 +3,9 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import {Helmet} from 'react-helmet';
 import NavigationBar from "../Navigation/NavigationBar";
+import "./Home.css";
 
 function Home() {
-  // return (
-  //   <div className="App">
-  //     <Header />
-  //     <NavigationBar/>
-  //     <SearchBar />
-  //     <Footer />
-  //   </div>
-  // );
-
   return (
     <>
       <>
