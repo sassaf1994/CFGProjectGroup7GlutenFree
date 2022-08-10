@@ -1,10 +1,13 @@
 import Header from "../Header/Header";
 import NavigationBar from "../Navigation/NavigationBar";
-import testImg from "./test-image.jpeg";
-import IngredientLine from "../IngredientLine/IngredientLine";
+import { useLocation } from "react-router-dom";
+import Footer from "../Footer/Footer";
+import "./RecipeDetail.css";
 
-function RecipeDetail(props) {
-  console.log(`props at recipe detail ${props.recipeTitle}`)
+function RecipeDetail() {
+  const location = useLocation();
+  const data = location.state;
+  console.log(`data at recipe detail: ${data}`);
   return (
     <>
       <Header />
@@ -12,8 +15,8 @@ function RecipeDetail(props) {
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <h1>{props.recipeTitle} ⭐️ 3.2</h1>
-            <h3>Link to make recipe here</h3>
+            <h1>{data["Name"]} ⭐️ 3.2</h1>
+            <a href={data["Recipe URL"]}>Link to Recipe Here</a>
           </div>
           <div className="col-4">
             <p>Rate this recipe</p>
@@ -21,19 +24,25 @@ function RecipeDetail(props) {
           </div>
           <div className="row">
             <div className="col-5">
-              <img src={testImg} width={200} height={200} />
+              <img src={data["Image URL"]} width={200} height={200} />
             </div>
             <div className="col-7">
-              <div className="nutritionIngredients">
-                <div className="row">
-                  <div className="col">
-                    <h2>Nutrition</h2>
-                  </div>
+              <div className="recipeDetails">
+                <div className="nutritionIngredients">
+                  <div className="row">
+                    <div className="col">
+                      <h2>Nutrition</h2>
+                      {data["Ingredients"].map((singleNutritionLine) => (
+                        <NutritionLine nutrition={singleNutritionLine} />
+                      ))}
+                    </div>
 
-                  <div className="col">
-                    <h2>Ingredients</h2>
-                    <IngredientLine />
-                    <IngredientLine />
+                    <div className="col">
+                      <h2>Ingredients</h2>
+                      {data["Ingredients"].map((singleIngredientLine) => (
+                        <IngredientLine ingredient={singleIngredientLine} />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -41,8 +50,25 @@ function RecipeDetail(props) {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
 
 export default RecipeDetail;
+
+function IngredientLine(props) {
+  return (
+    <div className="ingredientLine">
+      <p>{props.ingredient}</p>
+    </div>
+  );
+}
+
+function NutritionLine(props) {
+  return (
+    <div className="nutritionLine">
+      <p>{props.nutrition}</p>
+    </div>
+  );
+}

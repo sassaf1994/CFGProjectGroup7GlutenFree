@@ -8,11 +8,7 @@ function RecipeView(props) {
     <div className="container">
       <div className="recipeView">
         {props.data.map((singleRecipeData) => (
-          <RecipeCard
-            key={singleRecipeData["Recipe ID"]}
-            recipeTitle={singleRecipeData["Name"]}
-            recipeImage={singleRecipeData["Image URL"]}
-          />
+          <RecipeCard data={singleRecipeData} />
         ))}
       </div>
     </div>
@@ -22,22 +18,21 @@ function RecipeView(props) {
 export default RecipeView;
 
 function RecipeCard(props) {
+  console.log(`props at recipeCard: ${props.data["Name"]}`);
   return (
     <div style={{ display: "inline-block", margin: "1em" }}>
       <div className="recipeCard">
-        <Card className="recipeCard" style={{ width: "16rem" }}>
-          <Link
-            to="recipedetail"
-            key={props.key}
-            recipeTitle={props.recipeTitle}
-            recipeImage={props.recipeImage}
-          >
-            <Card.Img variant="top" src={`${props.recipeImage}`} />
+        <Card
+          className="recipeCard"
+          style={{ width: "16rem", height: "26rem" }}
+        >
+          <Link to="recipe-detail" state={props.data}>
+            <Card.Img variant="top" src={`${props.data["Image URL"]}`} />
           </Link>
           <Card.Body>
             <div className="row">
               <div className="col">
-                <Card.Title>{props.recipeTitle}</Card.Title>
+                <Card.Title>{props.data["Name"]}</Card.Title>
               </div>
               <div className="col">
                 <Card.Text>⭐️ 3.7</Card.Text>

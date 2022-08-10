@@ -24,11 +24,6 @@ function NavigationBar() {
                 MY COOKBOOK
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/recipedetail">
-                TEST DETAIL
-              </Link>
-            </li>
           </div>
         </Container>
       </Navbar>

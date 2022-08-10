@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "./ProjectLogo.png";
+import logo from "./easyeatsnobackground.png"
 
 function Header() {
   return (

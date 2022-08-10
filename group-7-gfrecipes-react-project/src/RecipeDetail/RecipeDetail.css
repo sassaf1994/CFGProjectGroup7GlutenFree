@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap");
+
+
 .nutritionInngredients {
     background-color: #f8d2cf;
+    font-family: "Barlow", sans-serif;
+}
+
+.recipeDetail {
+    background-color: #f8d2cf;
+    font-family: "Barlow", sans-serif;
 }

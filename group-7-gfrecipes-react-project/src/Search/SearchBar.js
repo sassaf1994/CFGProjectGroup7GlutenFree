@@ -6,9 +6,13 @@ import "./SearchBar.css";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import RecipeView from "../RecipeView/RecipeView";
+// import { useSelector, useDispatch } from "react-redux";
+// import {loadRecipeData} from '../recipeData';
 
 // TODO Consider a more appropriate name and actually have a separate SearchBar.
 function SearchBar(props) {
+  // const dispatch = useDispatch()
+  // const reduxRecipeData = useSelector((state) => state.data);
   const [recipeData, setRecipeData] = useState(null); // null | RecipeData[]
   const [recipeQuery, setRecipeQuery] = useState("");
   const [recipeDataIsLoading, setRecipeDataIsLoading] = useState(false);
@@ -47,22 +51,6 @@ function SearchBar(props) {
   useEffect(() => {
     console.log(`Recipe Data at useEffect: ${recipeData}`);
   }, [recipeData]);
-
-  // useEffect( function getRecipeData() {
-  //   if (recipeQuery !== "") {
-  //     let apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipeQuery}&app_id=2b855013&app_key=%2031c3d687bb811cf2472599ed3c033640&health=gluten-free`;
-  //   axios.get(apiUrl).then((response) => {
-  //     console.log({ response });
-  //     setRecipeData(response.data.hits);
-  //     setRecipeDataIsLoading(false);
-  //   });
-  //   setRecipeData(null);
-  //   }
-  // }, [recipeQuery]);
-
-  // useEffect(() => {
-  //   console.log(`Recipe Data at useEffect: ${recipeData}`);
-  // }, [recipeData]);
 
   return (
     <>
