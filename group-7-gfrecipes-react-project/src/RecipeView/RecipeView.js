@@ -1,12 +1,13 @@
 import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // TODO consider making name less ambiguous - this is not a single recipe view.
 function RecipeView(props) {
   return (
     <div className="container">
       <div className="recipeView">
+        {/* set single recipe data from props and pass to recipe card to render */}
         {props.data.map((singleRecipeData) => (
           <RecipeCard data={singleRecipeData} />
         ))}
