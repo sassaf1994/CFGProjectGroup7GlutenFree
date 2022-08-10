@@ -7,7 +7,8 @@ import "./RecipeDetail.css";
 function RecipeDetail() {
   const location = useLocation();
   const data = location.state;
-  console.log(`data at recipe detail: ${data}`);
+  // get recipe data from location through <Link> element in RecipeCard
+
   return (
     <>
       <Header />
@@ -15,30 +16,39 @@ function RecipeDetail() {
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <h1>{data["Name"]} ⭐️ 3.2</h1>
-            <a href={data["Recipe URL"]}>Link to Recipe Here</a>
+            <h1 className="recipeTitle">{data["Name"]} ⭐️ 3.2</h1>
+            <a className="recipeLink" href={data["Recipe URL"]}>
+              See the full recipe at {data["Source"]} here
+            </a>
           </div>
           <div className="col-4">
-            <p>Rate this recipe</p>
-            <div>⭐️ ⭐️ ⭐️ ⭐️ ⭐️</div>
+           <h2>Rate This Recipe</h2>
+           <span>⭐️ ⭐️ ⭐️ ⭐️ ⭐️</span>
           </div>
           <div className="row">
             <div className="col-5">
-              <img src={data["Image URL"]} width={200} height={200} />
+              <img
+                className="recipeImage"
+                src={data["Image URL"]}
+                alt={`${data["Name"]}`}
+                width={400}
+                height={400}
+              />
+              <MyCookBookButton/>
             </div>
             <div className="col-7">
               <div className="recipeDetails">
                 <div className="nutritionIngredients">
                   <div className="row">
                     <div className="col">
-                      <h2>Nutrition</h2>
+                      <h2 className="niTitle">Nutrition</h2>
                       {data["Ingredients"].map((singleNutritionLine) => (
                         <NutritionLine nutrition={singleNutritionLine} />
                       ))}
                     </div>
 
                     <div className="col">
-                      <h2>Ingredients</h2>
+                      <h2 className="niTitle">Ingredients</h2>
                       {data["Ingredients"].map((singleIngredientLine) => (
                         <IngredientLine ingredient={singleIngredientLine} />
                       ))}
@@ -71,4 +81,12 @@ function NutritionLine(props) {
       <p>{props.nutrition}</p>
     </div>
   );
+}
+
+function MyCookBookButton() {
+  return (
+    <div>
+      <button className="myCookBookButton">📖 Add this recipe to Cookbook</button>
+    </div>
+  )
 }

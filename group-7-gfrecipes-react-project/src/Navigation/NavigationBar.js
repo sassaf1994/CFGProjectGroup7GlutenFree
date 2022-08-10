@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import "./NavigationBar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 
 function NavigationBar() {
@@ -10,19 +10,19 @@ function NavigationBar() {
         <Container>
           <div className="collapse navbar-collapse" id="navbarNav">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <NavLink className="nav-link" to="/">
                 HOME
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/aboutus">
+              <NavLink className="nav-link" to="/aboutus">
                 ABOUT US
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cookbook">
+              <NavLink className="nav-link" to="/cookbook">
                 MY COOKBOOK
-              </Link>
+              </NavLink>
             </li>
           </div>
         </Container>

@@ -8,7 +8,7 @@ body {
   font-family: "Bebas Neue", cursive;
   font-size: 55px;
   text-align: center;
-  padding-top: 1px;
+  padding-top: 10px;
   padding-bottom: 25px;
 }
 
@@ -16,8 +16,8 @@ body {
   background-color: #f8d2cf;
   display: block;
   margin: 0 auto;
-  width: 800px;
-  height: 800px;
+  width: 700px;
+  height: 700px;
   bottom: 250px;
   top: 250px;
   border-radius: 50%;
@@ -27,4 +27,5 @@ body {
   font-family: "Barlow", sans-serif;
   margin: auto;
   text-align: center;
+  padding-top: 65px;
 }

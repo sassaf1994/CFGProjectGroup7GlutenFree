@@ -1,12 +1,3 @@
-/* .footer {
-    padding: 20px;
-    font-weight: bold;
-    position: fixed;
-    bottom:0;
-    width: 100%;
-    background-color: #CCE9D6;
-} */
-
 @import url("https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap");
 body {
   margin: 0;
@@ -31,15 +22,14 @@ code {
   bottom: 0;
   left: 0;
   width: 100%;
-  display: flex;
 }
 
 .contact {
   font-family: "Barlow", sans-serif;
-  justify-content: space-between;
   color: black;
-  margin-left: 50px;
   font-size: 20px;
+  font-weight: bold;
+  text-align: right;
 }
 
 .contact:hover {
@@ -49,7 +39,9 @@ code {
 
 .policy {
   font-family: "Barlow", sans-serif;
-  margin-left: 50px;
+  color: black;
+  font-weight: bold;
+  margin-left: 0;
   font-size: 20px;
 }
 
@@ -60,14 +52,13 @@ code {
 
 .easyeats {
   font-family: "Bebas Neue", cursive;
-  margin-left: 850px;
   font-size: 20px;
-  justify-content: center;
+  text-align: center;
 }
 
 .pinterest {
-  margin-top: 15px;
-  margin-left: 500px;
+  /* margin-top: 15px; */
+  /* margin-left: 500px; */
   font-size: 25px;
 }
 
@@ -77,8 +68,8 @@ code {
 }
 
 .insta {
-  margin-top: 15px;
-  margin-left: 25px;
+  /* margin-top: 15px;
+  margin-left: 25px; */
   font-size: 25px;
 }
 
@@ -88,8 +79,8 @@ code {
 }
 
 .twitter {
-  margin-top: 15px;
-  margin-left: 25px;
+  /* margin-top: 15px;
+  margin-left: 25px; */
   font-size: 25px;
 }
 
@@ -99,8 +90,8 @@ code {
 }
 
 .facebook {
-  margin-top: 15px;
-  margin-left: 25px;
+  /* margin-top: 15px; */
+  margin-left: 0px;
   font-size: 25px;
 }
 
@@ -110,8 +101,8 @@ code {
 }
 
 .top {
-  margin-top: 15px;
-  margin-left: 300px;
+  /* margin-top: 15px;
+  margin-left: 300px; */
   font-size: 25px;
 }
 

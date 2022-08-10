@@ -14,8 +14,8 @@ function Home() {
         <Helmet>
           <title>EasyEats | Home</title>
         </Helmet>
-        <div className="gluten-title">
-          <h1>Gluten Free</h1>
+        <div>
+          <h1 className="gluten-title">GlUTEN FREE RECIPES</h1>
         </div>
         <SearchBar />
       </>
