@@ -1,0 +1,32 @@
+.searchBar {
+    width: 45%;
+    height: 50px;
+    line-height: 50px;
+    margin: auto;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+#search-field {
+    background-color: #F8D2CF;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+}
+
+.searchButton {
+    background-color: #CCE9D6;
+    color: black;
+    border: 1px solid black;
+}
+
+.searchButton:hover {
+    background-color: #F8D2CF;
+    color: black;
+    border: 1px solid black;
+}
+
+.title  {
+    padding-bottom: 20px;
+    font-size: 40px;
+}

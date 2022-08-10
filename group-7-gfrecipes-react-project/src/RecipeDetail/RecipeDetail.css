@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap");
+
+
+.nutritionInngredients {
+    background-color: #f8d2cf;
+    font-family: "Barlow", sans-serif;
+}
+
+.recipeDetails {
+    background-color: #f8d2cf;
+    padding: 50px;
+    border-radius: 25px;
+    font-family: "Barlow", sans-serif;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.recipeImage {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.recipeLink {
+    font-size: 25px;
+    font-family: "Barlow", sans-serif;
+    font-weight: bold;
+}
+
+.recipeTitle {
+    margin-top: 50px;
+    font-family: "Barlow", sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.niTitle {
+    font-weight: bold;
+    text-align: center;
+}
+
+.myCookBookButton {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: "Barlow", sans-serif;
+    border: 5px solid #f8d2cf;
+    border-radius: 10px;
+    font-weight: bold;
+}

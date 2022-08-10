@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&display=swap");
+
+body {
+  background-color: #F8F6F6;
+}
+
+.about {
+  font-family: "Bebas Neue", cursive;
+  font-size: 55px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
+
+.circle {
+  background-color: #f8d2cf;
+  display: block;
+  margin: 0 auto;
+  width: 700px;
+  height: 700px;
+  bottom: 250px;
+  top: 250px;
+  border-radius: 50%;
+}
+
+.circle-text {
+  font-family: "Barlow", sans-serif;
+  margin: auto;
+  text-align: center;
+  padding-top: 65px;
+}
