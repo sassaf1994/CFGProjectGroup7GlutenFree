@@ -1,7 +1,7 @@
 import unittest
 import mysql.connector
 from config import USER, PASSWORD, HOST
-
+from db_utils import get_specific_review
 
 #unittest to check DB connection will pick up if username, password is incorrect to connect to DB
 
