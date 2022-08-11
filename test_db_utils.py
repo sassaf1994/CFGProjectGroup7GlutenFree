@@ -26,6 +26,10 @@ class TestConnection(unittest.TestCase):
 
     def test_connection(self):
         self.assertTrue(self.connection.is_connected())
+        
+    def test_get_specific_review(self):
+        ret = get_specific_review('1', 'test review')
+        self.assertEqual(ret, 0 )
 
 if __name__ == '__main__':
     unittest.main()
