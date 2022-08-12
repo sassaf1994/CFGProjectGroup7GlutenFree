@@ -9,7 +9,7 @@ endpoint = "https://api.edamam.com/api/recipes/v2"
 """FUNCTIONS FOR GETTING RESPONSE"""
 
 
-def recipe_search(query, health):
+def api_call(query, health):
     payload = {"app_id": "45bce103",
                "app_key": 'b326299fbd784be300f3868ece1e9de8',
                "type": "public",
@@ -17,7 +17,12 @@ def recipe_search(query, health):
                "health": health
                }
 
-    response = requests.get(endpoint, params=payload).json()
+    response = requests.get(endpoint, params=payload)
+    return response
+
+
+def recipe_search(query, health):
+    response = api_call(query, health).json()
     return response["hits"]
 
 
@@ -61,7 +66,7 @@ def retrieve_id(res):
     list_of_ids = []
     list_of_urls = [recipe["recipe"]["shareAs"] for recipe in res]
     for i in list_of_urls:
-        matched = re.search("\d+\w+", i)
+        matched = re.search("\w{32}", i)
         list_of_ids.append(matched.group())
     return list_of_ids
 
@@ -126,7 +131,7 @@ def compile_list_of_results(data):
 
 def compile_single_result(data):
     recipe_url = data["recipe"]["shareAs"]
-    matched = re.search("\d+\w+", recipe_url) # needs to be looked at by Sarah
+    matched = re.search("\w{32}", recipe_url) # needs to be looked at by Sarah
     id_number = matched.group()
     dictionary = {
         "Name": data["recipe"]["label"],
@@ -148,3 +153,7 @@ def compile_single_result(data):
         "Salt": str(int(data["recipe"]["totalNutrients"]["NA"]["quantity"])) + data["recipe"]["totalNutrients"]["NA"]["unit"],
     }
     return dictionary
+
+pp(retrieve_id(response))
+list_length = [len(i) for i in retrieve_id(response)]
+print(list_length)
