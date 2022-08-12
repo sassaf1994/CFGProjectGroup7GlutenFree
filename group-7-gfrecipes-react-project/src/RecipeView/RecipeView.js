@@ -27,7 +27,7 @@ function RecipeCard(props) {
           className="recipeCard"
           style={{ width: "16rem", height: "26rem" }}
         >
-          <Link to="recipe-detail" state={props.data}>
+          <Link to={`/recipe-detail/${props.data["Recipe ID"]}`} state={props.data}>
             <Card.Img variant="top" src={`${props.data["Image URL"]}`} />
           </Link>
           <Card.Body>

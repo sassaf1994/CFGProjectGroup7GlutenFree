@@ -16,7 +16,9 @@ def hello():
 def get_data(query):
     data = recipe_search(query, "gluten-free")
     data_to_send = compile_list_of_results(data)
-    return jsonify(data_to_send)
+    response = jsonify(data_to_send)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 # get a specific result for a recipe
@@ -24,7 +26,9 @@ def get_data(query):
 def get_recipe(id):
     data = specific_recipe_search(id)
     data_to_send = compile_single_result(data)
-    return jsonify(data_to_send)
+    response = jsonify(data_to_send)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 # "79327d05b8e5b838ad6cfd9576b30b6" doesn't work
 

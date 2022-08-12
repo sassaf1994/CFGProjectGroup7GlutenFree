@@ -12,9 +12,9 @@ function App() {
         <div className="links">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/aboutus" element={<About />} />
-            <Route path="/CookBook" element={<CookBook />} />
-            <Route path="/recipe-detail/" element={<RecipeDetail/>} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/cookbook" element={<CookBook />} />
+            <Route path="/recipe-detail/:id" element={<RecipeDetail/>} />
           </Routes>
         </div>
       </Router>
