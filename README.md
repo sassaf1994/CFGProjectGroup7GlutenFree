@@ -25,7 +25,7 @@ Our site also allows users to rate recipes.
 
 ## How to use the project
 
-Once you have set up the development servers simply type in your recipe search keywords into the bar on the landing page to find a range of gluten-free recipe ideas from around the world. From the search results choose a recipe and click on it to find out more information. If you find a recipe you like you can simply follow the link to the recipe site for full details. 
+Once you have set up the development servers simply type in your recipe search keywords into the search bar on the landing page to find a range of gluten-free recipe ideas from around the world. From the search results choose a recipe and click on it to find out more information. If you find a recipe you like you can simply follow the link to the recipe site for full details. 
 
 
 ## Contributors 
