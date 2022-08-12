@@ -7,7 +7,6 @@ function RecipeView(props) {
   return (
     <div className="container">
       <div className="recipeView">
-        {/* set single recipe data from props and pass to recipe card to render */}
         {props.data.map((singleRecipeData) => (
           <RecipeCard data={singleRecipeData} />
         ))}
