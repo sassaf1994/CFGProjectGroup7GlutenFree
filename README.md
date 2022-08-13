@@ -5,7 +5,7 @@
 
 ## Description
 
-Gluten Free Recipe Search is a project using Edamam API to search for gluten-free recipes. The API has a database of almost 700,000 recipes and our app allows users to search and review recipes details all in one place before being directed to the recipe hosting site. 
+Gluten Free Recipe Search is a project using Edamam API to search for gluten-free recipes. The API has a database of almost 700,000 recipes and our app allows users to search and review recipe details all in one place before being directed to the recipe hosting site. 
 Our site also allows users to rate recipes. 
 
 ## Contents
