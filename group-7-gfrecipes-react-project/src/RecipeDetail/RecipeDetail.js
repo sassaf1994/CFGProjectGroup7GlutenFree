@@ -1,7 +1,4 @@
-import Header from "../Header/Header";
-import NavigationBar from "../Navigation/NavigationBar";
 import { useParams } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import "./RecipeDetail.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -47,7 +44,7 @@ function RecipeDetail() {
             </a>
           </div>
           <div className="col-4">
-            <Rating />
+            <Rating recipeId={data["Recipe ID"]}/>
           </div>
           <div className="row">
             <div className="col-5">

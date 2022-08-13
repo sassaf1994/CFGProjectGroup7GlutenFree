@@ -11,7 +11,6 @@ function SearchResults(props) {
   const [recipeData, setRecipeData] = useState(null);
   const [recipeQuery, setRecipeQuery] = useState("");
   const [recipeDataIsLoading, setRecipeDataIsLoading] = useState(false);
-  const [reviewData, setReviewData] = useState(null)
   const onSearch = (searchQuery) => {
     console.log("Searching with query", searchQuery);
     setRecipeQuery(searchQuery);
@@ -20,17 +19,6 @@ function SearchResults(props) {
   function handleError(err) {
     console.log("Error: ", err);
   }
-
-  useEffect(function getReviews() {
-    if (recipeQuery !== "") {
-      let reviewUrl = `https://east-eats-recipes.herokuapp.com/reviews`;
-      axios.get(reviewUrl).then((response) => {
-        console.log({ response});
-        setReviewData(response.data);
-        console.log(`Review data: ${reviewData}`)
-      })
-    }
-  }, [recipeQuery])
 
   useEffect(
     function getRecipeData() {

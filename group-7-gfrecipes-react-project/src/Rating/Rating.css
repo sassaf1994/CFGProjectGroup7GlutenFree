@@ -12,8 +12,8 @@
     display: flex;
 }
 
-.starIcon:hover {
-    background-color: yellow;
+.cursor-pointer {
+    cursor: pointer;
 }
 
 .rating {

@@ -1,17 +1,44 @@
 import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function RecipeResults(props) {
+  const [reviewData, setReviewData] = useState(0.0);
+
+  // const data = {
+  //   [props.data["Recipe ID"]]: props.data["Name"]
+  // }
+  const data = Object.fromEntries(
+    props.data.map((recipe) => [recipe["Recipe ID"], recipe["Name"]])
+  );
+
+  console.log("put request", data);
+
+  useEffect(
+    function getReviews() {
+      axios
+        .put(`http://127.0.0.1:5000/recipe/reviews`, data)
+        .then((response) => {
+          setReviewData(response.data);
+          console.log(reviewData);
+        });
+    },
+    [props.data]
+  );
+
   return (
     <div className="container">
       <div className="recipeView">
         {props.data.map((singleRecipeData) => (
-          <RecipeCard data={singleRecipeData} />
+          <RecipeCard
+            data={singleRecipeData}
+            key={singleRecipeData["Recipe ID"]}
+            review={reviewData}
+          />
         ))}
-        {props.data.length === 0
-          ? <SearchError/>
-          : null}
+        {props.data.length === 0 ? <SearchError /> : null}
       </div>
     </div>
   );
@@ -54,5 +81,5 @@ function SearchError() {
     <h2 className="searchError">
       No results found. Please check your spelling and try again.
     </h2>
-  )
+  );
 }
