@@ -33,6 +33,11 @@ class Testrecipesearch(unittest.TestCase):
     def test_source_of_recipes(self):
         ret = source_of_recipes(sample_response)
         self.assertEqual(ret[0:1],['Epicurious'])
+    
+    def test_compile_list_of_results(self):
+        ret = compile_list_of_results(sample_response)
+        ret1 = [x['Name'] for x in ret]
+        self.assertEqual(ret1[0],'Chicken, Onion, and Raisin Stew')
 
    
          
