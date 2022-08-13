@@ -10,6 +10,9 @@ function RecipeView(props) {
         {props.data.map((singleRecipeData) => (
           <RecipeCard data={singleRecipeData} />
         ))}
+        {props.data.length === 0
+          ? "No results. Please check your spelling and try again"
+          : null}
       </div>
     </div>
   );
@@ -26,7 +29,10 @@ function RecipeCard(props) {
           className="recipeCard"
           style={{ width: "16rem", height: "26rem" }}
         >
-          <Link to={`/recipe-detail/${props.data["Recipe ID"]}`} state={props.data}>
+          <Link
+            to={`/recipe-detail/${props.data["Recipe ID"]}`}
+            state={props.data}
+          >
             <Card.Img variant="top" src={`${props.data["Image URL"]}`} />
           </Link>
           <Card.Body>

@@ -1,4 +1,4 @@
-import Search from "../Search/SearchData";
+import SearchResults from "../Search/SearchResults";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import {Helmet} from 'react-helmet';
@@ -17,7 +17,7 @@ function Home() {
         <div>
           <h1 className="gluten-title">GlUTEN FREE RECIPES</h1>
         </div>
-        <Search />
+        <SearchResults />
       </>
       <Footer />
     </>

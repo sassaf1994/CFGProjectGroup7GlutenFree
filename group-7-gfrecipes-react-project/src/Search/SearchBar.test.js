@@ -2,7 +2,7 @@ import React from "react";
 import { render, cleanup, waitForElement} from "react-testing-library";
 import "jest-dom/extend-expect";
 import axiosMock from "axios";
-import Search from "./SearchData";
+import SearchResults from "./SearchResults";
 
 afterEach(cleanup);
 

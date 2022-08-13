@@ -10,7 +10,7 @@ endpoint = "https://api.edamam.com/api/recipes/v2"
 
 
 def api_call(query, health):
-    payload = {"app_id": "45bce103",
+    payload = {"app_id": "2b855013",
                "app_key": '31c3d687bb811cf2472599ed3c033640',
                "type": "public",
                "q": query,
