@@ -13,13 +13,12 @@
     font-family: "Barlow", sans-serif;
     display: block;
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .recipeImage {
     display: block;
     text-align: center;
-    margin-top: 50px;
 }
 
 .recipeLink {
@@ -32,12 +31,12 @@
     margin-top: 50px;
     font-family: "Barlow", sans-serif;
     font-weight: bold;
-    font-size: 55px;
+    font-size: 50px;
 }
 
 .niTitle {
     font-weight: bold;
-    text-align: center;
+    /* text-align: left; */
 }
 
 .myCookBookButton {
@@ -49,4 +48,12 @@
     border: 5px solid #f8d2cf;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.nutritionLine {
+    text-align: left;
+}
+
+.loader {
+    text-align: center;
 }

@@ -1,6 +1,3 @@
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-import NavigationBar from "../Navigation/NavigationBar";
 import { Helmet } from "react-helmet";
 import "./Cookbook.css";
 
@@ -8,8 +5,6 @@ function CookBook() {
   return (
     <>
       <>
-        <Header />
-        <NavigationBar />
         <Helmet>
           <title>EasyEats | My Cookbook</title>
           <link
@@ -23,7 +18,6 @@ function CookBook() {
           <h1>My Cookbook</h1>
         </div>
       </>
-      <Footer />
     </>
   );
 }

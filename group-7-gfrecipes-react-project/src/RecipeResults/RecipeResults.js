@@ -2,24 +2,24 @@ import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
 import { Link } from "react-router-dom";
 
-// TODO consider making name less ambiguous - this is not a single recipe view.
-function RecipeView(props) {
+function RecipeResults(props) {
   return (
     <div className="container">
       <div className="recipeView">
-        {/* set single recipe data from props and pass to recipe card to render */}
         {props.data.map((singleRecipeData) => (
           <RecipeCard data={singleRecipeData} />
         ))}
+        {props.data.length === 0
+          ? <SearchError/>
+          : null}
       </div>
     </div>
   );
 }
 
-export default RecipeView;
+export default RecipeResults;
 
 function RecipeCard(props) {
-  console.log(`props at recipeCard: ${props.data["Name"]}`);
   return (
     <div style={{ display: "inline-block", margin: "1em" }}>
       <div className="recipeCard">
@@ -27,7 +27,10 @@ function RecipeCard(props) {
           className="recipeCard"
           style={{ width: "16rem", height: "26rem" }}
         >
-          <Link to={`/recipe-detail/${props.data["Recipe ID"]}`} state={props.data}>
+          <Link
+            to={`/recipe-detail/${props.data["Recipe ID"]}`}
+            state={props.data}
+          >
             <Card.Img variant="top" src={`${props.data["Image URL"]}`} />
           </Link>
           <Card.Body>
@@ -36,7 +39,7 @@ function RecipeCard(props) {
                 <Card.Title>{props.data["Name"]}</Card.Title>
               </div>
               <div className="col">
-                <Card.Text>⭐️ 3.7</Card.Text>
+                <Card.Text>⭐️ No Reviews</Card.Text>
               </div>
             </div>
           </Card.Body>
@@ -44,4 +47,12 @@ function RecipeCard(props) {
       </div>
     </div>
   );
+}
+
+function SearchError() {
+  return (
+    <h2 className="searchError">
+      No results found. Please check your spelling and try again.
+    </h2>
+  )
 }

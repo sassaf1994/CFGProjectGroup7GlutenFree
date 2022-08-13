@@ -1,20 +1,24 @@
 import Header from "../Header/Header";
 import NavigationBar from "../Navigation/NavigationBar";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import "./RecipeDetail.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Rating from "../Rating/Rating";
+import { ThreeDots } from "react-loader-spinner";
+import IngredientView from "./IngredientView";
+import NutritionInfoView from "./NutritionInfoView";
+import MyCookBookButton from "./MyCookbookButton";
 
 function RecipeDetail() {
   const { id } = useParams();
-
   const [data, setRecipeData] = useState(null);
   const [recipeDataIsLoading, setRecipeDataIsLoading] = useState(true);
 
   useEffect(
     function getRecipeData() {
-      let apiUrl = `http://127.0.0.1:5000/recipe/specific/${id}`;
+      let apiUrl = `https://east-eats-recipes.herokuapp.com/recipe/specific/${id}`;
       axios.get(apiUrl).then((response) => {
         console.log({ response });
         setRecipeData(response.data);
@@ -26,12 +30,14 @@ function RecipeDetail() {
   );
 
   if (recipeDataIsLoading) {
-    return <>Loading</>;
+    return (
+      <div className="loader">
+        <ThreeDots className="loader" color="black" height={80} width={80} />;
+      </div>
+    );
   }
   return (
     <>
-      <Header />
-      <NavigationBar />
       <div className="container">
         <div className="row">
           <div className="col-8">
@@ -41,8 +47,7 @@ function RecipeDetail() {
             </a>
           </div>
           <div className="col-4">
-            <h2>Rate This Recipe</h2>
-            <span>⭐️ ⭐️ ⭐️ ⭐️ ⭐️</span>
+            <Rating />
           </div>
           <div className="row">
             <div className="col-5">
@@ -61,15 +66,12 @@ function RecipeDetail() {
                   <div className="row">
                     <div className="col">
                       <h2 className="niTitle">Nutrition</h2>
-                      {data["Ingredients"].map((singleNutritionLine) => (
-                        <NutritionLine nutrition={singleNutritionLine} />
-                      ))}
+                      <NutritionInfoView data={data} />
                     </div>
-
                     <div className="col">
                       <h2 className="niTitle">Ingredients</h2>
                       {data["Ingredients"].map((singleIngredientLine) => (
-                        <IngredientLine ingredient={singleIngredientLine} />
+                        <IngredientView ingredient={singleIngredientLine} />
                       ))}
                     </div>
                   </div>
@@ -79,35 +81,10 @@ function RecipeDetail() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
 
 export default RecipeDetail;
 
-function IngredientLine(props) {
-  return (
-    <div className="ingredientLine">
-      <p>{props.ingredient}</p>
-    </div>
-  );
-}
 
-function NutritionLine(props) {
-  return (
-    <div className="nutritionLine">
-      <p>{props.nutrition}</p>
-    </div>
-  );
-}
-
-function MyCookBookButton() {
-  return (
-    <div>
-      <button className="myCookBookButton">
-        📖 Add this recipe to Cookbook
-      </button>
-    </div>
-  );
-}
