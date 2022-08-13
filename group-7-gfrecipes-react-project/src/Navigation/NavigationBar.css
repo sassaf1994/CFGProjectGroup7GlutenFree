@@ -26,6 +26,11 @@
   color: white;
 }
 
+.navbar-collapse{
+  justify-content: center;
+
+  }
+
 /* 
 
 .navbar {

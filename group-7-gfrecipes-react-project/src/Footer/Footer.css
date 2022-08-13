@@ -28,6 +28,7 @@ code {
   font-family: "Barlow", sans-serif;
   color: black;
   font-size: 20px;
+  margin-top: 15px;
   font-weight: bold;
   text-align: right;
 }
@@ -41,7 +42,8 @@ code {
   font-family: "Barlow", sans-serif;
   color: black;
   font-weight: bold;
-  margin-left: 0;
+  margin-left: 35px;
+  margin-top: 15px;
   font-size: 20px;
 }
 
@@ -52,14 +54,16 @@ code {
 
 .easyeats {
   font-family: "Bebas Neue", cursive;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .pinterest {
-  /* margin-top: 15px; */
-  /* margin-left: 500px; */
+  margin-top: 15px;
+  margin-left: 10px;
   font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .pinterest:hover {
@@ -68,9 +72,10 @@ code {
 }
 
 .insta {
-  /* margin-top: 15px;
-  margin-left: 25px; */
+  margin-top: 15px;
+  margin-left: -20px;
   font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .insta:hover {
@@ -79,9 +84,10 @@ code {
 }
 
 .twitter {
-  /* margin-top: 15px;
-  margin-left: 25px; */
+  margin-top: 15px;
+  margin-left: -10px;
   font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .twitter:hover {
@@ -90,9 +96,10 @@ code {
 }
 
 .facebook {
-  /* margin-top: 15px; */
-  margin-left: 0px;
+  margin-top: 15px;
+  margin-left: -30px;
   font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .facebook:hover {
@@ -101,8 +108,9 @@ code {
 }
 
 .top {
-  /* margin-top: 15px;
-  margin-left: 300px; */
+  margin-top: 15px;
+  margin-left: 300px;
+  margin-right: 50px;
   font-size: 25px;
 }
 
