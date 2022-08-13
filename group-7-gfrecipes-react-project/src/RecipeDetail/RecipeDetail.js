@@ -18,7 +18,7 @@ function RecipeDetail() {
 
   useEffect(
     function getRecipeData() {
-      let apiUrl = `http://127.0.0.1:5000/recipe/specific/${id}`;
+      let apiUrl = `https://east-eats-recipes.herokuapp.com/recipe/specific/${id}`;
       axios.get(apiUrl).then((response) => {
         console.log({ response });
         setRecipeData(response.data);
@@ -38,8 +38,6 @@ function RecipeDetail() {
   }
   return (
     <>
-      <Header />
-      <NavigationBar />
       <div className="container">
         <div className="row">
           <div className="col-8">
@@ -83,7 +81,6 @@ function RecipeDetail() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

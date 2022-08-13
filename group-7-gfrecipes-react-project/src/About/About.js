@@ -1,6 +1,3 @@
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-import NavigationBar from "../Navigation/NavigationBar";
 import { Helmet } from "react-helmet";
 import "./About.css";
 
@@ -14,12 +11,9 @@ function About() {
   return (
     <>
       <>
-        <Header />
-        <NavigationBar />
         <Helmet>
           <title>EasyEats | About Us</title>
         </Helmet>
-        <Footer />
       </>
       <>
         <h1 className="about">About Us</h1>

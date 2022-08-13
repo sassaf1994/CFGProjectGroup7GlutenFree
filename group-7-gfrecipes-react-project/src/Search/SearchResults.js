@@ -24,7 +24,7 @@ function SearchResults(props) {
     function getRecipeData() {
       if (recipeQuery !== "") {
         console.log(recipeQuery);
-        let apiUrl = `http://127.0.0.1:5000/recipes/${recipeQuery}`;
+        let apiUrl = `https://east-eats-recipes.herokuapp.com/recipes/${recipeQuery}`;
         axios.get(apiUrl).then((response) => {
           console.log({ response });
           setRecipeData(response.data);

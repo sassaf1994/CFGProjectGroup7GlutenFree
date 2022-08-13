@@ -1,25 +1,14 @@
 import SearchResults from "../Search/SearchResults";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import {Helmet} from 'react-helmet';
-import NavigationBar from "../Navigation/NavigationBar";
+import { Helmet } from "react-helmet";
 import "./Home.css";
 
 function Home() {
   return (
     <>
-      <>
-        <Header />
-        <NavigationBar />
-        <Helmet>
-          <title>EasyEats | Home</title>
-        </Helmet>
-        <div>
-          <h1 className="gluten-title">GlUTEN FREE RECIPES</h1>
-        </div>
-        <SearchResults />
-      </>
-      <Footer />
+      <div>
+        <h1 className="gluten-title">GlUTEN FREE RECIPES</h1>
+      </div>
+      <SearchResults />
     </>
   );
 }
