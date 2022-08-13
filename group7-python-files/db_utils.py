@@ -58,3 +58,4 @@ def insert_new_review(food_id, rating):
     finally:
         if database_connection:
             database_connection.close()
+    return rating

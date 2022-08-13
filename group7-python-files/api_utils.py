@@ -1,7 +1,6 @@
 import requests
 import re
-from response import response
-from pprint import pprint as pp
+
 
 endpoint = "https://api.edamam.com/api/recipes/v2"
 
@@ -26,16 +25,22 @@ def recipe_search(query, health):
     return response["hits"]
 
 
-def specific_recipe_search(id):
+def specific_api_call(id):
     payload = {"app_id": "45bce103",
                "app_key": 'b326299fbd784be300f3868ece1e9de8',
                "type": "public",
                }
     endpoint_2 = f"{endpoint}/{id}"
-    response = requests.get(endpoint_2, params=payload).json()
+    response = requests.get(endpoint_2, params=payload)
+    return response
+
+
+def specific_recipe_search(id):
+    response = specific_api_call(id).json()
     return response
 
 """ FUNCTIONS FOR GETTING GENERAL INFORMATION FROM RESPONSE """
+
 
 def name_of_recipes(res):
     list_of_names = [recipe["recipe"]["label"] for recipe in res]
@@ -153,7 +158,3 @@ def compile_single_result(data):
         "Salt": str(int(data["recipe"]["totalNutrients"]["NA"]["quantity"])) + data["recipe"]["totalNutrients"]["NA"]["unit"],
     }
     return dictionary
-
-pp(retrieve_id(response))
-list_length = [len(i) for i in retrieve_id(response)]
-print(list_length)
