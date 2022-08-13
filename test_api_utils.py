@@ -44,8 +44,5 @@ class Testrecipesearch(unittest.TestCase):
 if __name__=='__main__':
     unittest.main()
 
-def test():
-    data= retrieve_id(sample_response)
-    print(data)
 
 
