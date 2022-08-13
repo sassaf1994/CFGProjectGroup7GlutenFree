@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import "./SearchBar.css";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
-import RecipeView from "../RecipeView/RecipeView";
+import RecipeResults from "../RecipeResults/RecipeResults";
 
 function SearchResults(props) {
   const [recipeData, setRecipeData] = useState(null);
@@ -19,9 +19,6 @@ function SearchResults(props) {
   function handleError(err) {
     console.log("Error: ", err);
   }
-
-  //TODO: Handle errors and write condition so if API doesn't recognise query, we return a message
-  // to check query and try again.
 
   useEffect(
     function getRecipeData() {
@@ -49,7 +46,7 @@ function SearchResults(props) {
       {recipeDataIsLoading ? (
         <ThreeDots color="#F8D2CF" height={80} width={80} />
       ) : recipeData === null ? null : (
-        <RecipeView data={recipeData} />
+        <RecipeResults data={recipeData} />
       )}
     </>
   );
@@ -78,7 +75,6 @@ function SearchBar(props) {
               }}
               onChange={(evt) => {
                 setCurrentSearchText(evt.target.value);
-                // console.log("SEARCH BAR ON CHANGE EVENT: ", evt);
               }}
             />
           </InputGroup>

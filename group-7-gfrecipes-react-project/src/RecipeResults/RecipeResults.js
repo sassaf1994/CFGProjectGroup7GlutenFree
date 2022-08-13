@@ -2,8 +2,7 @@ import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
 import { Link } from "react-router-dom";
 
-// TODO consider making name less ambiguous - this is not a single recipe view.
-function RecipeView(props) {
+function RecipeResults(props) {
   return (
     <div className="container">
       <div className="recipeView">
@@ -11,14 +10,14 @@ function RecipeView(props) {
           <RecipeCard data={singleRecipeData} />
         ))}
         {props.data.length === 0
-          ? "No results. Please check your spelling and try again"
+          ? <SearchError/>
           : null}
       </div>
     </div>
   );
 }
 
-export default RecipeView;
+export default RecipeResults;
 
 function RecipeCard(props) {
   console.log(`props at recipeCard: ${props.data["Name"]}`);
@@ -49,4 +48,12 @@ function RecipeCard(props) {
       </div>
     </div>
   );
+}
+
+function SearchError() {
+  return (
+    <h2 className="searchError">
+      No results found. Please check your spelling and try again.
+    </h2>
+  )
 }

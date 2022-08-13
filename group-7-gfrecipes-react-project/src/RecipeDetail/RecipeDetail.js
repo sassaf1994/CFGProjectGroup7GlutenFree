@@ -6,6 +6,10 @@ import "./RecipeDetail.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Rating from "../Rating/Rating";
+import { ThreeDots } from "react-loader-spinner";
+import IngredientView from "./IngredientView";
+import NutritionInfoView from "./NutritionInfoView";
+import MyCookBookButton from "./MyCookbookButton";
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -26,7 +30,11 @@ function RecipeDetail() {
   );
 
   if (recipeDataIsLoading) {
-    return <>Loading</>;
+    return (
+      <div className="loader">
+        <ThreeDots className="loader" color="black" height={80} width={80} />;
+      </div>
+    );
   }
   return (
     <>
@@ -60,12 +68,12 @@ function RecipeDetail() {
                   <div className="row">
                     <div className="col">
                       <h2 className="niTitle">Nutrition</h2>
-                      <NutritionLine data={data} />
+                      <NutritionInfoView data={data} />
                     </div>
                     <div className="col">
                       <h2 className="niTitle">Ingredients</h2>
                       {data["Ingredients"].map((singleIngredientLine) => (
-                        <IngredientLine ingredient={singleIngredientLine} />
+                        <IngredientView ingredient={singleIngredientLine} />
                       ))}
                     </div>
                   </div>
@@ -82,41 +90,4 @@ function RecipeDetail() {
 
 export default RecipeDetail;
 
-function IngredientLine(props) {
-  return (
-    <div className="ingredientLine">
-      <p>{props.ingredient}</p>
-    </div>
-  );
-}
 
-function NutritionLine(props) {
-  return (
-    <div className="nutritionLine">
-      <p>Total Fat: {props.data["Total Fat"]}</p>
-      <ul>
-        <li>Saturated Fat: {props.data["Sat Fat"]}</li>
-        <li>Polyunsaturated Fat: {props.data["Poly Fat"]}</li>
-        <li>Monounsaturated Fat: {props.data["Mono Fat"]}</li>
-      </ul>
-      <p>Total Carbs: {props.data["Total Carbs"]}</p>
-      <ul>
-        <li>Of which sugars: {props.data["Carbs which Sugar"]}</li>
-        <li>Net Carbs: {props.data["Net Carbs"]}</li>
-      </ul>
-      <p>Salt: {props.data["Salt"]}</p>
-      <p>Protein: {props.data["Protein"]}</p>
-      <p>Fibre: {props.data["Fibre"]}</p>
-    </div>
-  );
-}
-
-function MyCookBookButton() {
-  return (
-    <div>
-      <button className="myCookBookButton">
-        📖 Add this recipe to Cookbook
-      </button>
-    </div>
-  );
-}
