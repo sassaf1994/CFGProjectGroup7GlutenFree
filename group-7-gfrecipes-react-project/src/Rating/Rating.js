@@ -1,5 +1,4 @@
 import { FaRegStar } from "react-icons/fa";
-
 import { useState } from "react";
 import "./Rating.css";
 
@@ -22,5 +21,9 @@ export default Rating;
 
 function StarIcon(props) {
   const [fill, setFill] = useState("none");
-  return <FaRegStar />;
+  return (
+    <div>
+      <FaRegStar className="starIcon" size="s"/>
+    </div>
+  );
 }

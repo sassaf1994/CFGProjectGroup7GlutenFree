@@ -20,7 +20,6 @@ function RecipeResults(props) {
 export default RecipeResults;
 
 function RecipeCard(props) {
-  console.log(`props at recipeCard: ${props.data["Name"]}`);
   return (
     <div style={{ display: "inline-block", margin: "1em" }}>
       <div className="recipeCard">
@@ -40,7 +39,7 @@ function RecipeCard(props) {
                 <Card.Title>{props.data["Name"]}</Card.Title>
               </div>
               <div className="col">
-                <Card.Text>⭐️ 3.7</Card.Text>
+                <Card.Text>⭐️ No Reviews</Card.Text>
               </div>
             </div>
           </Card.Body>
