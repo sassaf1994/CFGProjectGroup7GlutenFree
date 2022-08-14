@@ -11,8 +11,8 @@ test('Displays "My Cookbook" title', () => {
     expect(titleElement).toBeInTheDocument();
 });
 
-test('displays saved recipes title', () => {
+test('displays coming soon title', () => {
     render(<CookBook/>);
-    const savedRecipesTitle = screen.getByText(/No saved recipes/i)
+    const savedRecipesTitle = screen.getByText(/COMING SOON.../i)
     expect(savedRecipesTitle).toBeInTheDocument();
 });
