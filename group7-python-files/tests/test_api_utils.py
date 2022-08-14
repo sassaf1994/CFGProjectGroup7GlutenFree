@@ -5,7 +5,7 @@ import sys
 
 sys.path.insert(0, '../API/')
 from api_utils import recipe_search, specific_recipe_search, api_call, specific_api_call, name_of_recipes, \
-    ingredients_of_recipes, retrieve_id
+    ingredients_of_recipes, retrieve_id, other_recipe_information
 from api_utils import recipe_url_of_recipes, source_of_recipes, images_url_of_recipes, nutrition_recipes, \
     compile_list_of_results, compile_single_result
 from response import response as sample_response, response2 as sample_response_2, response3 as sample_response_3, expected_compilation_of_response, expected_compilation_of_response_3
@@ -17,6 +17,14 @@ class TestRequests(unittest.TestCase):
         result = api_call("chicken", "gluten-free").status_code
         expected = 200
         self.assertEqual(expected, result)
+
+    def test_api_call_health_error(self):
+        with self.assertRaises(ValueError):
+            result = api_call("chicken", "glutenfree")
+
+    def test_api_call_search_error(self):
+        with self.assertRaises(ValueError):
+            result = api_call("1234", "glutenfree")
 
     @patch('api_utils.requests.get')
     def test_recipe_search_status(self, mock_get):
@@ -47,6 +55,10 @@ class TestParsingFunctions(unittest.TestCase):
         result = initial_list[0:1]
         self.assertEqual(expected, result)
 
+    def test_name_of_recipes_error(self):
+        result = name_of_recipes("I am not the expected response")
+        self.assertIsNone(result)
+
     def test_ingredients_of_recipes(self):
         initial_list = ingredients_of_recipes(sample_response)
         expected_part_one = initial_list[0][:2]
@@ -56,11 +68,19 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(expected_part_one, result_part_one)
         self.assertEqual(expected_part_two, result_part_two)
 
+    def test_ingredients_of_recipes_error(self):
+        result = ingredients_of_recipes("I am not the expected response")
+        self.assertIsNone(result)
+
     def test_recipe_url_of_recipes(self):
         expected = ['https://www.epicurious.com/recipes/food/views/chicken-onion-and-raisin-stew-106484']
         initial_list = recipe_url_of_recipes(sample_response)
         first_element_result = initial_list[:1]
         self.assertEqual(first_element_result, expected)
+
+    def test_recipe_url_of_recipes_error(self):
+        result = recipe_url_of_recipes("I am not the expected response")
+        self.assertIsNone(result)
 
     def test_images_url_of_recipes(self):
         expected = [
@@ -69,11 +89,29 @@ class TestParsingFunctions(unittest.TestCase):
         first_element_result = initial_list[:1]
         self.assertEqual(first_element_result, expected)
 
+    def test_images_url_of_recipes_error(self):
+        result = images_url_of_recipes("I am not the expected response")
+        self.assertIsNone(result)
+
     def test_source_of_recipes(self):
         expected = ['Epicurious']
         initial_list = source_of_recipes(sample_response)
         first_element_result = initial_list[:1]
         self.assertEqual(first_element_result, expected)
+
+    def test_source_of_recipes_error(self):
+        result = source_of_recipes("I am not the expected response")
+        self.assertIsNone(result)
+
+    def test_misc_information(self):
+        expected = [6.0]
+        initial_list = other_recipe_information(sample_response, "yield")
+        first_element_result = initial_list[:1]
+        self.assertEqual(first_element_result, expected)
+
+    def test_misc_information_error(self):
+        result = other_recipe_information("I am not the expected response", "yield")
+        self.assertIsNone(result)
 
     def test_retrieve_id(self):
         expected = ["0f23ddc24c6f7889bda3347826884d9e"]
@@ -81,11 +119,23 @@ class TestParsingFunctions(unittest.TestCase):
         first_element_result = initial_list[:1]
         self.assertEqual(first_element_result, expected)
 
+    def test_retrieve_id_error(self):
+        result = retrieve_id("I am not the expected response")
+        self.assertIsNone(result)
+
     def test_nutrition_recipes(self):
         expected = ["6029kcal"]
         initial_list = nutrition_recipes(sample_response, "ENERC_KCAL")
         first_element_result = initial_list[:1]
         self.assertEqual(first_element_result, expected)
+
+    def test_nutrition_recipes_error(self):
+        result = nutrition_recipes("I am not the expected response", "ENERC_KCAL")
+        self.assertIsNone(result)
+
+    def test_nutrition_recipes_error_not_in_list(self):
+        with self.assertRaises(ValueError):
+            result = api_call(sample_response, "calories")
 
 
 class TestCompilingFunctions(unittest.TestCase):
@@ -95,10 +145,18 @@ class TestCompilingFunctions(unittest.TestCase):
         result = compile_list_of_results(sample_response)
         self.assertEqual(result, expected)
 
+    def test_compile_list_of_results(self):
+        result = compile_list_of_results("I am not compilable.")
+        self.assertIsNone(result)
+
     def test_compile_single_result(self):
         expected = expected_compilation_of_response_3
         result = compile_single_result(sample_response_3)
         self.assertEqual(result, expected)
+
+    def test_compile_list_of_results(self):
+        result = compile_list_of_results("I am not compilable.")
+        self.assertIsNone(result)
 
 
 if __name__ == '__main__':
