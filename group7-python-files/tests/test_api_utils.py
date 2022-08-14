@@ -56,9 +56,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(expected, result)
 
     def test_name_of_recipes_error(self):
-        expected = None
         result = name_of_recipes("I am not the expected response")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_ingredients_of_recipes(self):
         initial_list = ingredients_of_recipes(sample_response)
@@ -70,9 +69,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(expected_part_two, result_part_two)
 
     def test_ingredients_of_recipes_error(self):
-        expected = None
         result = ingredients_of_recipes("I am not the expected response")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_recipe_url_of_recipes(self):
         expected = ['https://www.epicurious.com/recipes/food/views/chicken-onion-and-raisin-stew-106484']
@@ -81,9 +79,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(first_element_result, expected)
 
     def test_recipe_url_of_recipes_error(self):
-        expected = None
         result = recipe_url_of_recipes("I am not the expected response")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_images_url_of_recipes(self):
         expected = [
@@ -93,9 +90,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(first_element_result, expected)
 
     def test_images_url_of_recipes_error(self):
-        expected = None
         result = images_url_of_recipes("I am not the expected response")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_source_of_recipes(self):
         expected = ['Epicurious']
@@ -104,9 +100,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(first_element_result, expected)
 
     def test_source_of_recipes_error(self):
-        expected = None
         result = source_of_recipes("I am not the expected response")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_misc_information(self):
         expected = [6.0]
@@ -115,9 +110,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(first_element_result, expected)
 
     def test_misc_information_error(self):
-        expected = None
         result = other_recipe_information("I am not the expected response", "yield")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_retrieve_id(self):
         expected = ["0f23ddc24c6f7889bda3347826884d9e"]
@@ -126,9 +120,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(first_element_result, expected)
 
     def test_retrieve_id_error(self):
-        expected = None
         result = retrieve_id("I am not the expected response")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_nutrition_recipes(self):
         expected = ["6029kcal"]
@@ -137,9 +130,8 @@ class TestParsingFunctions(unittest.TestCase):
         self.assertEqual(first_element_result, expected)
 
     def test_nutrition_recipes_error(self):
-        expected = None
         result = nutrition_recipes("I am not the expected response", "ENERC_KCAL")
-        self.assertEqual(expected, result)
+        self.assertIsNone(result)
 
     def test_nutrition_recipes_error_not_in_list(self):
         with self.assertRaises(ValueError):
@@ -154,7 +146,6 @@ class TestCompilingFunctions(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_compile_list_of_results(self):
-        expected = None
         result = compile_list_of_results("I am not compilable.")
         self.assertIsNone(result)
 
@@ -164,7 +155,6 @@ class TestCompilingFunctions(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_compile_list_of_results(self):
-        expected = None
         result = compile_list_of_results("I am not compilable.")
         self.assertIsNone(result)
 
