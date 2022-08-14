@@ -1,5 +1,4 @@
-import { FaRegStar } from "react-icons/fa";
-import { useMemo, useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import "./Rating.css";
 import axios from "axios";
 
@@ -8,6 +7,7 @@ function Rating(props) {
   const [hoverRating, setHoverRating] = useState(0);
 
   const onMouseEnter = (index) => {
+    console.log('hover rating:', hoverRating)
     setHoverRating(index);
   };
 
@@ -21,7 +21,7 @@ function Rating(props) {
   };
 
   function saveRating() {
-    let url = `https://east-eats-recipes.herokuapp.com//recipe/post_review`;
+    let url = `http://127.0.0.1:5000/recipe/post_review`;
     axios.put(url, {[props.recipeId]: rating}).then((response) => {
         console.log(`Successfully sent rating: ${rating}`)
     })

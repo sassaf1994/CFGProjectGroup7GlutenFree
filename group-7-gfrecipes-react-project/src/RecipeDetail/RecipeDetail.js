@@ -16,11 +16,25 @@ function RecipeDetail() {
   useEffect(
     function getRecipeData() {
       let apiUrl = `https://east-eats-recipes.herokuapp.com/recipe/specific/${id}`;
-      axios.get(apiUrl).then((response) => {
-        console.log({ response });
-        setRecipeData(response.data);
-        setRecipeDataIsLoading(false);
-      });
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          console.log({ response });
+          setRecipeData(response.data);
+          setRecipeDataIsLoading(false);
+        })
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
       setRecipeData(null);
     },
     [id]
@@ -38,13 +52,13 @@ function RecipeDetail() {
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <h1 className="recipeTitle">{data["Name"]} ⭐️ 3.2</h1>
+            <h1 className="recipeTitle">{data["Name"]} ⭐️ No ratings yet!</h1>
             <a className="recipeLink" href={data["Recipe URL"]}>
               See the full recipe at '{data["Source"]}' here
             </a>
           </div>
           <div className="col-4">
-            <Rating recipeId={data["Recipe ID"]}/>
+            <Rating recipeId={data["Recipe ID"]} />
           </div>
           <div className="row">
             <div className="col-5">
@@ -83,5 +97,3 @@ function RecipeDetail() {
 }
 
 export default RecipeDetail;
-
-

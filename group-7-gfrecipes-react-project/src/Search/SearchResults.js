@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import "./SearchBar.css";
+import "./Search.css";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import RecipeResults from "../RecipeResults/RecipeResults";
@@ -11,10 +10,10 @@ function SearchResults(props) {
   const [recipeData, setRecipeData] = useState(null);
   const [recipeQuery, setRecipeQuery] = useState("");
   const [recipeDataIsLoading, setRecipeDataIsLoading] = useState(false);
-  const onSearch = (searchQuery) => {
-    console.log("Searching with query", searchQuery);
-    setRecipeQuery(searchQuery);
-  };
+  // const onSearch = (searchQuery) => {
+  //   console.log("Searching with query", searchQuery);
+  //   setRecipeQuery(searchQuery);
+  // };
 
   function handleError(err) {
     console.log("Error: ", err);
@@ -25,11 +24,25 @@ function SearchResults(props) {
       if (recipeQuery !== "") {
         console.log(recipeQuery);
         let apiUrl = `https://east-eats-recipes.herokuapp.com/recipes/${recipeQuery}`;
-        axios.get(apiUrl).then((response) => {
-          console.log({ response });
-          setRecipeData(response.data);
-          setRecipeDataIsLoading(false);
-        }, handleError);
+        axios
+          .get(apiUrl)
+          .then((response) => {
+            console.log({ response });
+            setRecipeData(response.data);
+            setRecipeDataIsLoading(false);
+          })
+          .catch(function (error) {
+            if (error.response) {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              console.log(error.request);
+            } else {
+              console.log("Error", error.message);
+            }
+            console.log(error.config);
+          });
         setRecipeData(null);
       }
     },
