@@ -89,9 +89,6 @@ def retrieve_user(email):
         return result
 
 
-
-
-
 def check_user(result, password_check):
     if not result:
         return "This email address does not exist in our database. Please create an account."

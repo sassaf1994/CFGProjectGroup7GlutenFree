@@ -1,5 +1,8 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import sys
+sys.path.insert(0, '../API/utilities_and_config')
+
 from api_utils import recipe_search, compile_list_of_results, specific_recipe_search, compile_single_result
 from db_utils_reviews_database import insert_new_review, get_specific_review
 from db_utils_user_database import add_user, retrieve_user, verify_email_and_password, verify_password, verify_email, check_user
@@ -61,7 +64,6 @@ def add_user_api():
             return "This Account Already Exists"
         email_status = verify_email(email)
         password_status = verify_password(password)
-        print(password_status)
         overall_status = verify_email_and_password(email_status, password_status)
         if overall_status is True:
             add_user(email, password)
