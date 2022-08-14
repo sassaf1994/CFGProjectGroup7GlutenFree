@@ -3,7 +3,7 @@ from unittest.mock import patch
 import requests
 import sys
 
-sys.path.insert(0, '../')
+sys.path.insert(0, '../API/')
 from api_utils import recipe_search, specific_recipe_search, api_call, specific_api_call, name_of_recipes, \
     ingredients_of_recipes, retrieve_id
 from api_utils import recipe_url_of_recipes, source_of_recipes, images_url_of_recipes, nutrition_recipes, \
