@@ -83,7 +83,7 @@ function RatingIcon(props) {
 }
 
 function saveRating(recipeId, rating) {
-  let url = `http://127.0.0.1:5000/recipe/post_review`;
+  let url = `https://east-eats-recipes.herokuapp.com/recipe/post_review`;
   axios.put(url, { [recipeId]: rating }).then((response) => {
     console.log(`Successfully sent rating: ${rating}`);
   });
