@@ -1,11 +1,13 @@
 import mysql.connector
-from config import USER, PASSWORD, HOST
+from config_reviews_database import USER, PASSWORD, HOST
 
 
+# Error handling if not connecting to DB(eg password wrong)
 class DbConnectionError(Exception):
     pass
 
 
+# connect to the DB
 def _connect_to_db(database_name):
     connection = mysql.connector.connect(
         host=HOST,
@@ -17,13 +19,15 @@ def _connect_to_db(database_name):
     return connection
 
 
-def add_user(email, password):
+# get a review
+def get_specific_review(food_id, food_name):
     try:
-        database_name = "users"
+        database_name = "reviews"
         database_con = _connect_to_db(database_name)
         cursor = database_con.cursor(buffered="True")
-        query = f"""
-        INSERT INTO user_information (user_email, user_password) VALUES ("{email}", "{password}");"""
+        query = """
+            SELECT retrieve_rating4("{id}","{name}")
+            """.format(id=food_id, name=food_name)
         cursor.execute(query)
         result = cursor.fetchall()
         database_con.commit()
@@ -33,20 +37,25 @@ def add_user(email, password):
     finally:
         if database_con:
             database_con.close()
-
-# to be completed - check the result of the query
-def check_user(email, password):
     try:
-        database_name = "users"
-        database_con = _connect_to_db(database_name)
-        cursor = database_con.cursor(buffered="True")
-        query = f"""
-        SELECT user_email, user_password FROM user_information WHERE user_email = "{email};"""
+        return float(result[0][0])
+    except TypeError:
+        return 0
+
+
+# To add a review
+def insert_new_review(food_id, rating):
+    try:
+        database_name = "reviews"
+        database_connection = _connect_to_db(database_name)
+        cursor = database_connection.cursor(buffered=True)
+        query = f"""SELECT update_rating("{food_id}",{rating})"""
         cursor.execute(query)
-        result = cursor.fetchall()
+        database_connection.commit()
         cursor.close()
     except Exception:
         raise DbConnectionError("Failed to read data from DB")
     finally:
-        if database_con:
-            database_con.close()
+        if database_connection:
+            database_connection.close()
+    return rating

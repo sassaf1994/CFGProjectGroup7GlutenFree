@@ -3,9 +3,9 @@ from unittest.mock import patch
 import mysql.connector
 import sys
 
-sys.path.insert(0, '../API/')
-from config import USER, PASSWORD, HOST
-from db_utils import get_specific_review, insert_new_review
+sys.path.insert(0, '../API/utilities_and_config')
+from config_reviews_database import USER, PASSWORD, HOST
+from db_utils_reviews_database import get_specific_review, insert_new_review
 
 
 # unittest to check DB connection will pick up if username, password is incorrect to connect to DB
