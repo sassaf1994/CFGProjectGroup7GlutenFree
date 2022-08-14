@@ -7,7 +7,9 @@ class DbConnectionError(Exception):
     pass
 
 
-def _connect_to_db(database_name):
+def _connect_to_db(database_name: str) -> object:
+    """Establish connection to database"""
+
     connection = mysql.connector.connect(
         host=HOST,
         user=USER,
@@ -18,16 +20,16 @@ def _connect_to_db(database_name):
     return connection
 
 
-""" VERIFICATION OF NEW USER FORMAT (Email and password fits format) """
+def verify_email(email:str) -> bool:
+    """Verify that user email is in the correct format"""
 
-
-def verify_email(email):
     email_pattern = "^[a-zA-Z0-9-_.]+@[a-zA-Z0-9]+\.[a-z.]{1,5}$"
-
     return True if re.match(email_pattern, email) else False
 
 
-def verify_password(password):
+def verify_password(password:str) -> bool:
+    """Verify that password is in the correct format"""
+
     permissable_characters = [letter for letter in "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+"]
     if len(password) < 8:
         return False
@@ -37,7 +39,9 @@ def verify_password(password):
     return True
 
 
-def verify_email_and_password(email_status, password_status):
+def verify_email_and_password(email_status: bool, password_status: bool):
+    """Check overall status of the user and show the cause of any failure"""
+
     if email_status and password_status:
         return True
     if not email_status and password_status:
@@ -48,10 +52,9 @@ def verify_email_and_password(email_status, password_status):
         return "Neither your email nor password fulfill the requirements. Please check and try again."
 
 
-""" ADDING USER TO THE DATABASE """
+def add_user(email: str, password: str):
+    """Add a user to the database"""
 
-
-def add_user(email, password):
     try:
         database_name = "user"
         database_con = _connect_to_db(database_name)
@@ -68,10 +71,10 @@ def add_user(email, password):
         if database_con:
             database_con.close()
 
-""" CHECKING USER LOGGING IN FUNCTIONS """
 
+def retrieve_user(email:str) -> list:
+    """Retrieve an email and password from our database"""
 
-def retrieve_user(email):
     try:
         database_name = "user"
         database_con = _connect_to_db(database_name)
@@ -89,7 +92,9 @@ def retrieve_user(email):
         return result
 
 
-def check_user(result, password_check):
+def check_user(result: list, password_check: str) -> str:
+    """Check if email exists in database"""
+
     if not result:
         return "This email address does not exist in our database. Please create an account."
     email, password = result[0]

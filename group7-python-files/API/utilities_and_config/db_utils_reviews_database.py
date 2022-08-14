@@ -7,8 +7,9 @@ class DbConnectionError(Exception):
     pass
 
 
-# connect to the DB
-def _connect_to_db(database_name):
+def _connect_to_db(database_name: str) -> object:
+    """Connect to a chosen database"""
+
     connection = mysql.connector.connect(
         host=HOST,
         user=USER,
@@ -19,8 +20,9 @@ def _connect_to_db(database_name):
     return connection
 
 
-# get a review
-def get_specific_review(food_id, food_name):
+def get_specific_review(food_id: str, food_name: str):
+    """Get a specific review from the reviews database"""
+
     try:
         database_name = "reviews"
         database_con = _connect_to_db(database_name)
@@ -38,13 +40,14 @@ def get_specific_review(food_id, food_name):
         if database_con:
             database_con.close()
     try:
-        return float(result[0][0])
+        return round(float(result[0][0]),1)
     except TypeError:
         return 0
 
 
-# To add a review
-def insert_new_review(food_id, rating):
+def insert_new_review(food_id: str, rating: int) -> int:
+    """Add a review to the reviews database"""
+
     try:
         database_name = "reviews"
         database_connection = _connect_to_db(database_name)
