@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import "./SearchBar.css";
+import "./Search.css";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import RecipeResults from "../RecipeResults/RecipeResults";

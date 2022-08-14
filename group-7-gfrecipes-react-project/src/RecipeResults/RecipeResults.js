@@ -1,8 +1,6 @@
 import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-
 
 function RecipeResults(props) {
 
@@ -51,10 +49,6 @@ function RecipeCard(props) {
       </div>
     </div>
   );
-}
-
-function ReviewScore(props) {
-  return <p>⭐️ {props.review.value}</p>;
 }
 
 function SearchError() {
