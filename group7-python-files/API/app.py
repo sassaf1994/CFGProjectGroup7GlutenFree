@@ -13,30 +13,35 @@ CORS(app)
 
 @app.route("/")
 def hello():
+    """Test route"""
+
     return "Hello World!"
 
 
-# get a set of search results from a search
 @app.route("/recipes/<query>", methods=["GET"])
 def get_data(query):
+    """Get a list of information on recipes from a query"""
+
     data = recipe_search(query, "gluten-free")
     data_to_send = compile_list_of_results(data)
     response = jsonify(data_to_send)
     return response
 
 
-# get a specific result for a recipe
 @app.route("/recipe/specific/<id>", methods=["GET"])
 def get_recipe(id):
+    """Get information on a specific recipe"""
+
     data = specific_recipe_search(id)
     data_to_send = compile_single_result(data)
     response = jsonify(data_to_send)
     return response
 
 
-# get a review for a multiple recipe
 @app.route("/recipe/reviews", methods=["PUT"])
 def get_reviews():
+    """Get the rating for a list of recipes"""
+
     recipe_ids = request.get_json()
     data_to_send = {}
     for i, j in recipe_ids.items():
@@ -45,18 +50,20 @@ def get_reviews():
     return jsonify(data_to_send)
 
 
-# post a rating for a specific recipe
 @app.route("/recipe/post_review", methods=["PUT"])
 def post_review():
+    """Post a rating for a particular recipe"""
+
     rating = request.get_json()
     for i, j in rating.items():
         insert_new_review(i,j)
     return jsonify(rating)
 
 
-# add a new user
 @app.route("/user/add_user", methods=["POST"])
 def add_user_api():
+    """Add a user to the user database if they do not already exist"""
+
     user_to_add = request.get_json()
     for email, password in user_to_add.items():
         check_not_already_user = retrieve_user(email)
@@ -74,6 +81,8 @@ def add_user_api():
 # login a user
 @app.route("/user/verify_user", methods=["GET"])
 def verify_user():
+    """Verify a user email and password if they are trying to login"""
+
     user_to_check = request.get_json()
     for email, password in user_to_check.items():
         retrieved_user = retrieve_user(email)

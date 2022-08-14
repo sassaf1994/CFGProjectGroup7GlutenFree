@@ -30,10 +30,9 @@ api_nutrition_options = ["SUGAR.added","CA","CHOCDF.net","CHOCDF","CHOLE","ENERC
                          "SUGAR","THIA","FAT","VITA_RAE","VITB12","VITB6A","VITC","VITD","TOCPHA","VITK1","WATER","ZN"]
 
 
-"""FUNCTIONS FOR GETTING RESPONSE"""
+def api_call(query: str, health: str) -> object:
+    """Send a request to the Edemame API for a particular search query and health requirement"""
 
-
-def api_call(query, health):
     payload = {"app_id": "2b855013",
                "app_key": '31c3d687bb811cf2472599ed3c033640',
                "type": "public",
@@ -53,12 +52,16 @@ def api_call(query, health):
         return response
 
 
-def recipe_search(query, health):
+def recipe_search(query: str, health: str) -> list:
+    """Get the relevant information from the response sent to Edemame API"""
+
     response = api_call(query, health).json()
     return response["hits"]
 
 
-def specific_api_call(id):
+def specific_api_call(id: str) -> object:
+    """Send a request to the Edemame API for a specific recipe"""
+
     payload = {"app_id": "45bce103",
                "app_key": 'b326299fbd784be300f3868ece1e9de8',
                "type": "public",
@@ -73,15 +76,16 @@ def specific_api_call(id):
         return response
 
 
-def specific_recipe_search(id):
+def specific_recipe_search(id: str) -> object:
+    """Retrieve the response for a specific recipe from Edemame API"""
+
     response = specific_api_call(id).json()
     return response
 
 
-""" FUNCTIONS FOR GETTING RELEVANT INFORMATION FROM RESPONSE """
+def name_of_recipes(res: list) -> list:
+    """Create a list of recipe names from a given response"""
 
-
-def name_of_recipes(res):
     try:
         list_of_names = [recipe["recipe"]["label"] for recipe in res]
     except:
@@ -91,7 +95,9 @@ def name_of_recipes(res):
         return list_of_names
 
 
-def ingredients_of_recipes(res):
+def ingredients_of_recipes(res: list) -> list:
+    """Create a list of ingredients from a given response"""
+
     try:
         list_of_ingredients = [recipe["recipe"]["ingredientLines"] for recipe in res]
     except:
@@ -101,7 +107,9 @@ def ingredients_of_recipes(res):
         return list_of_ingredients
 
 
-def recipe_url_of_recipes(res):
+def recipe_url_of_recipes(res: list) -> list:
+    """Create a list of urls from a given response"""
+
     try:
         list_of_recipe_url = [recipe["recipe"]["url"] for recipe in res]
     except:
@@ -111,7 +119,9 @@ def recipe_url_of_recipes(res):
         return list_of_recipe_url
 
 
-def source_of_recipes(res):
+def source_of_recipes(res: list) -> list:
+    """Create a list of recipe sources from a given response"""
+
     try:
         list_of_source_recipes = [recipe["recipe"]["source"] for recipe in res]
     except:
@@ -121,7 +131,9 @@ def source_of_recipes(res):
         return list_of_source_recipes
 
 
-def other_recipe_information(res, parameter):
+def other_recipe_information(res: list, parameter: str) -> list:
+    """Create a list of other parameters from a given response"""
+
     try:
         list_of_source_recipes = [recipe["recipe"][f"{parameter}"] for recipe in res]
     except Exception:
@@ -131,7 +143,9 @@ def other_recipe_information(res, parameter):
         return list_of_source_recipes
 
 
-def images_url_of_recipes(res):
+def images_url_of_recipes(res: list) -> list:
+    """Create a list of image urls from a given response"""
+
     try:
         list_of_images_url = [recipe["recipe"]["images"]["SMALL"]["url"] for recipe in res]
     except Exception:
@@ -140,7 +154,9 @@ def images_url_of_recipes(res):
         return list_of_images_url
 
 
-def retrieve_id(res):
+def retrieve_id(res: list) -> list:
+    """Create a list of recipe IDs from a given response"""
+
     try:
         list_of_ids = []
         list_of_urls = [recipe["recipe"]["shareAs"] for recipe in res]
@@ -159,10 +175,9 @@ def retrieve_id(res):
         return list_of_ids
 
 
-""" FUNCTIONS FOR GETTING NUTRITIONAL INFORMATION FROM RESPONSE """
+def nutrition_recipes(res: list, nutritional_category: str) -> list:
+    """Create a list of nutritional information from a given response, flexible around the type of nutritional info."""
 
-
-def nutrition_recipes(res, nutritional_category):
     try:
         if nutritional_category not in api_nutrition_options:
             raise NutritionCategoryError("This nutrition category does not exist. Please review and refer to the types.")
@@ -175,10 +190,9 @@ def nutrition_recipes(res, nutritional_category):
         return list_of_nutrition
 
 
-""" FUNCTIONS FOR COMPILING DATA TO SEND NEATLY TO FRONT END """
+def compile_list_of_results(data: list) -> list:
+    """Compile relevant information for sending to the front end neatly and clearly"""
 
-
-def compile_list_of_results(data):
     index = 0
     list_of_names = name_of_recipes(data)
     list_of_sources = source_of_recipes(data)
@@ -232,7 +246,9 @@ def compile_list_of_results(data):
         return compiled_list_of_ingredients
 
 
-def compile_single_result(data):
+def compile_single_result(data: list) -> dict:
+    """Compile relevant information for sending to the front end neatly and clearly for a single result"""
+
     try:
         recipe_url = data["recipe"]["shareAs"]
         matched = re.search("\w{32}", recipe_url)
