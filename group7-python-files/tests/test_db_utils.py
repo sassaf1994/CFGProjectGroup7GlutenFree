@@ -3,7 +3,7 @@ from unittest.mock import patch
 import mysql.connector
 import sys
 
-sys.path.insert(0, '../')
+sys.path.insert(0, '../API/')
 from config import USER, PASSWORD, HOST
 from db_utils import get_specific_review, insert_new_review
 
