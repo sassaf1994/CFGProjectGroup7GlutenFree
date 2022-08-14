@@ -47,7 +47,7 @@ def verify_email_and_password(email_status, password_status):
     else:
         return "Neither your email nor password fulfill the requirements. Please check and try again."
 
-print(verify_email_and_password(True, False))
+
 """ ADDING USER TO THE DATABASE """
 
 
@@ -87,9 +87,6 @@ def retrieve_user(email):
         if database_con:
             database_con.close()
         return result
-
-
-
 
 
 def check_user(result, password_check):
