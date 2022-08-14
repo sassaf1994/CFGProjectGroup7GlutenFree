@@ -1,9 +1,11 @@
 .recipeCard {
-    margin-top: 50px;
+    margin-top: 30px;
+    bottom: 100px;
 }
 
 .recipeView {
     margin-top: 50px;
+    ;
 }
 
 .recipeButton {
@@ -13,4 +15,8 @@
 
 .searchError {
     text-align: center;
+}
+
+.card{
+    margin-bottom: 50px;
 }

@@ -7,6 +7,11 @@ body {
   font-family: "Bebas Neue", cursive;
   font-size: 55px;
   text-align: center;
-  padding-top: 75px;
-  padding-bottom: 60px;
+  padding-top: 75px
+}
+
+.text{
+  padding-top: 150px;
+  font-size: 55px;
+  text-align: center;
 }

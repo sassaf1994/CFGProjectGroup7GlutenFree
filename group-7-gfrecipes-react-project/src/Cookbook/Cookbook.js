@@ -16,6 +16,9 @@ function CookBook() {
         </Helmet>
         <div className="cookbook-title">
           <h1>My Cookbook</h1>
+          <div className="text">
+            COMING SOON...
+          </div>
         </div>
       </>
     </>
