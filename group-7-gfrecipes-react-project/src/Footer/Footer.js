@@ -12,6 +12,7 @@ import "./Scroll-arrow.js";
 //Scroll to Top Behaviour
 const scrollTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+
 };
 
 //Features of the footer

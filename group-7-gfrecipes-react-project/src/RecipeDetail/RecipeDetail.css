@@ -17,7 +17,7 @@
 }
 
 .recipeImage {
-    display: block;
+    display:inline-flex;
     text-align: center;
 }
 
@@ -31,7 +31,8 @@
     margin-top: 50px;
     font-family: "Barlow", sans-serif;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 35px;
+    
 }
 
 .niTitle {
