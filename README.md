@@ -15,12 +15,9 @@ Our site also allows users to rate recipes.
 
 ## How to run this project
 
-* Run the mysql scripts to create the database on your local machine. 
-* Replace your details in the config.py file to your own details. 
-* Replace the app key and id key in api_utils.py with your own details which can be obtained here: ( https://developer.edamam.com/edamam-docs-recipe-api )
-* Run the flask app in the app.py file to start back end development server
-* From react folder npm install 
-* npm run to start the front end development server
+You do not need to do anything to run our backend service as this is deployed to the cloud, but please follow the steps below to run the front end application:s
+* From the 'group-7-gfrecipes-react-project' directory, run 'npm install' 
+* Run 'npm start' to start the development server
 
 
 ## How to use the project
