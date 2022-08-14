@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from api_utils import recipe_search, compile_list_of_results, specific_recipe_search, compile_single_result
 from db_utils import insert_new_review, get_specific_review
 from db_utils_user_database import add_user, check_user
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/")
@@ -17,7 +19,6 @@ def get_data(query):
     data = recipe_search(query, "gluten-free")
     data_to_send = compile_list_of_results(data)
     response = jsonify(data_to_send)
-    response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
@@ -27,12 +28,10 @@ def get_recipe(id):
     data = specific_recipe_search(id)
     data_to_send = compile_single_result(data)
     response = jsonify(data_to_send)
-    response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-# "79327d05b8e5b838ad6cfd9576b30b6" doesn't work
 
-# # get a review for a multiple recipe
+# get a review for a multiple recipe
 @app.route("/recipe/reviews", methods=["PUT"])
 def get_reviews():
     recipe_ids = request.get_json()
@@ -43,8 +42,7 @@ def get_reviews():
     return jsonify(data_to_send)
 
 
-#
-# # post a rating for a specific recipe
+# post a rating for a specific recipe
 @app.route("/recipe/post_review", methods=["PUT"])
 def post_review():
     rating = request.get_json()
