@@ -62,6 +62,8 @@ def post_review():
 
 @app.route("/user/add_user", methods=["POST"])
 def add_user_api():
+    """Add a user to the user database if they do not already exist"""
+
     user_to_add = request.get_json()
     for email, password in user_to_add.items():
         check_not_already_user = retrieve_user(email)
@@ -79,6 +81,8 @@ def add_user_api():
 # login a user
 @app.route("/user/verify_user", methods=["GET"])
 def verify_user():
+    """Verify a user email and password if they are trying to login"""
+
     user_to_check = request.get_json()
     for email, password in user_to_check.items():
         retrieved_user = retrieve_user(email)
