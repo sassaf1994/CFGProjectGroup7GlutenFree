@@ -26,6 +26,7 @@ Port: 3306<br>
 Username: admin<br>
 Password: purple123<br>
 
+Although ordinarily we would not want to make databases which give functionality or contain personal information public, we have done so in this case for ease of access for the purposes of our project and understanding the workings.
 
 ## How to use the project
 
