@@ -2,8 +2,8 @@ import mysql.connector
 from config_reviews_database import USER, PASSWORD, HOST
 
 
-# Error handling if not connecting to DB(eg password wrong)
 class DbConnectionError(Exception):
+    """Error handling for connection to databases"""
     pass
 
 
