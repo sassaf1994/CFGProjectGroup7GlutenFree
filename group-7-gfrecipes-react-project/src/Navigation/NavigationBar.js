@@ -11,7 +11,7 @@ function NavigationBar() {
   return (
     <div className="navigationBar">
       <Navbar expand="lg" collapseOnSelect>
-        <Container>
+        <Container className="navbar-container">
         <NavbarToggle  className="navbar-toggler" aria-controls='responsive-navbar-nav' />
         <NavbarCollapse id="responsive-navbar-nav">
           <div className="navbar-collapse" id="navbarNav">

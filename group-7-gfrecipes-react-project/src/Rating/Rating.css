@@ -9,7 +9,10 @@
 }
 
 .star-icons {
-    display: flex;
+  
+    display:inline-flex;
+    border-radius: 50px;
+    ;
 }
 
 .cursor-pointer {
@@ -18,8 +21,11 @@
 
 .rating {
     padding: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-right: 25px;
     margin-bottom: 30px;
     font-family: "Barlow", sans-serif;
+   
+    border-radius: 50px;
 }
 

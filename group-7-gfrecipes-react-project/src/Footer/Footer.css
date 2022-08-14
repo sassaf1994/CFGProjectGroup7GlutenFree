@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8f6f6;
+
 }
 
 code {
@@ -16,12 +17,15 @@ code {
 
 .footer {
   margin-top: 100px;
-  padding: 1rem;
+  padding: 0rem;
+  padding-top: 0px;
   background-color: #cde9d6;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  clear: both;
+  
 }
 
 .contact {

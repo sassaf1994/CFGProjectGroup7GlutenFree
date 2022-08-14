@@ -8,6 +8,7 @@ flask = "*"
 requests = "*"
 "mysql.connector" = "*"
 gunicorn = "*"
+flask-cors = "*"
 
 [dev-packages]
 
