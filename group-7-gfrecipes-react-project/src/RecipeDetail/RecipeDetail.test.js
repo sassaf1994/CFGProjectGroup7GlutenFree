@@ -1,11 +1,11 @@
 import React from "react";
-import { render, cleanup, screen } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { RecipeDetailImpl } from "./RecipeDetail";
 
 afterEach(cleanup);
 
-test("x", () => {
+test("recipeDetail renders expected snapshot", () => {
   const data = {
     "Average Review": 4.7,
     Calories: "2516kcal",
@@ -36,8 +36,8 @@ test("x", () => {
     "Total Fat": "222g",
   };
 
-  expect(render(<RecipeDetailImpl data={data} />).asFragment()).
-toMatchInlineSnapshot(`
+  expect(render(<RecipeDetailImpl data={data} />).asFragment())
+    .toMatchInlineSnapshot(`
 <DocumentFragment>
   <div
     class="container"

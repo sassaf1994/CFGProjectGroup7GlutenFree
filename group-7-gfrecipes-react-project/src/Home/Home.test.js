@@ -5,8 +5,8 @@ import Home from "./Home";
 
 afterEach(cleanup);
 
-test('Displays Gluten Free Recipes title', () => {
-    render(<Home/>);
-    const titleElement = screen.getByText(/Gluten Free Recipes/i)
-    expect(titleElement).toBeInTheDocument();
+test("Displays Gluten Free Recipes title", () => {
+  render(<Home />);
+  const titleElement = screen.getByText(/Gluten Free Recipes/i);
+  expect(titleElement).toBeInTheDocument();
 });

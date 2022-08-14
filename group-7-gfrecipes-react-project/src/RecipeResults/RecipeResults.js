@@ -3,7 +3,6 @@ import "./RecipeView.css";
 import { Link } from "react-router-dom";
 
 function RecipeResults(props) {
-
   return (
     <div className="container">
       <div className="recipeView">
@@ -41,7 +40,9 @@ function RecipeCard(props) {
                 <Card.Title>{props.data["Name"]}</Card.Title>
               </div>
               <div className="col">
-                <Card.Text>Avg. Review {props.data["Average Review"] ?? "undef"}</Card.Text>
+                <Card.Text>
+                  Avg. Review ⭐️{props.data["Average Review"]}
+                </Card.Text>
               </div>
             </div>
           </Card.Body>

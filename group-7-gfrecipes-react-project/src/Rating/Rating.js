@@ -3,11 +3,9 @@ import "./Rating.css";
 import axios from "axios";
 
 function Rating(props) {
-  const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
 
   const onMouseEnter = (index) => {
-    console.log("hover rating:", hoverRating);
     setHoverRating(index);
   };
 
@@ -15,17 +13,8 @@ function Rating(props) {
     setHoverRating(0);
   };
   const onSaveRating = (index) => {
-    setRating(index);
-    saveRating();
-    console.log(rating);
+    saveRating(props.recipeId, index)
   };
-
-  function saveRating() {
-    let url = `http://127.0.0.1:5000/recipe/post_review`;
-    axios.put(url, { [props.recipeId]: rating }).then((response) => {
-      console.log(`Successfully sent rating: ${rating}`);
-    });
-  }
 
   return (
     <div className="rating">
@@ -35,7 +24,6 @@ function Rating(props) {
           return (
             <RatingIcon
               index={index}
-              rating={rating}
               key={index}
               hoverRating={hoverRating}
               onMouseEnter={onMouseEnter}
@@ -92,4 +80,11 @@ function RatingIcon(props) {
       <StarIcon fill={fill} />
     </div>
   );
+}
+
+function saveRating(recipeId, rating) {
+  let url = `http://127.0.0.1:5000/recipe/post_review`;
+  axios.put(url, { [recipeId]: rating }).then((response) => {
+    console.log(`Successfully sent rating: ${rating}`);
+  });
 }

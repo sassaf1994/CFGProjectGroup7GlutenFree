@@ -1,33 +1,32 @@
 .searchBar {
-    width: 45%;
-    height: 50px;
-    line-height: 50px;
-    margin: auto;
-    padding-top: 70px;
-    padding-bottom: 170px;
+  width: 45%;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  padding-top: 70px;
+  padding-bottom: 170px;
 }
 
 #search-field {
-    background-color: #F8D2CF;
-    color: black;
-    font-weight: 600;
-    text-align: center;
+  background-color: #f8d2cf;
+  color: black;
+  font-weight: 600;
+  text-align: center;
 }
 
 .searchButton {
-    background-color: #CCE9D6;
-    color: black;
-    border: 1px solid black;
+  background-color: #cce9d6;
+  color: black;
+  border: 1px solid black;
 }
 
 .searchButton:hover {
-    background-color: #F8D2CF;
-    color: black;
-    border: 1px solid black;
+  background-color: #f8d2cf;
+  color: black;
+  border: 1px solid black;
 }
 
-.title  {
-    padding-bottom: 20px;
-    font-size: 40px;
+.title {
+  padding-bottom: 20px;
+  font-size: 40px;
 }
-

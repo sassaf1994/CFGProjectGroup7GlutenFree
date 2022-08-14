@@ -94,9 +94,14 @@ export function RecipeDetailImpl(props) {
                     </div>
                     <div className="col">
                       <h2 className="niTitle">Ingredients</h2>
-                      {data["Ingredients"].map((singleIngredientLine, index) => (
-                        <IngredientView key={index} ingredient={singleIngredientLine} />
-                      ))}
+                      {data["Ingredients"].map(
+                        (singleIngredientLine, index) => (
+                          <IngredientView
+                            key={index}
+                            ingredient={singleIngredientLine}
+                          />
+                        )
+                      )}
                     </div>
                   </div>
                 </div>

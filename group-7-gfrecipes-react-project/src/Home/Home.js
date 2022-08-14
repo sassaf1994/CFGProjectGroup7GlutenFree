@@ -5,9 +5,9 @@ import "./Home.css";
 function Home() {
   return (
     <>
-    <Helmet>
-          <title>EasyEats | Home</title>
-        </Helmet>
+      <Helmet>
+        <title>EasyEats | Home</title>
+      </Helmet>
       <h1 className="gluten-title">GlUTEN FREE RECIPES</h1>
       <SearchResults />
     </>

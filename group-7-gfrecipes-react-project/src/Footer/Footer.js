@@ -12,7 +12,6 @@ import "./Scroll-arrow.js";
 //Scroll to Top Behaviour
 const scrollTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
-
 };
 
 //Features of the footer
@@ -36,29 +35,49 @@ const Footer = () => (
         <div className="row">
           <div className="col">
             <div className="pinterest">
-              <a className= "pinterest" href="https://www.pinterest.co.uk" target= "_blank" rel="noreferrer">
-              <FaPinterestP />
+              <a
+                className="pinterest"
+                href="https://www.pinterest.co.uk"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaPinterestP />
               </a>
             </div>
           </div>
           <div className="col">
             <div className="twitter">
-              <a className="twitter" href="https://twitter.com" target= "_blank" rel="noreferrer">
-              <FaTwitter />
+              <a
+                className="twitter"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaTwitter />
               </a>
             </div>
           </div>
           <div className="col">
             <div className="insta">
-              <a className="insta" href="https://www.instagram.com" target= "_blank" rel="noreferrer">
-              <FaInstagram />
+              <a
+                className="insta"
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram />
               </a>
             </div>
           </div>
           <div className="col">
             <div className="facebook">
-              <a className="facebook" href="https://www.facebook.com" target= "_blank" rel="noreferrer">
-              <FaFacebook />
+              <a
+                className="facebook"
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaFacebook />
               </a>
             </div>
           </div>

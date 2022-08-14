@@ -15,12 +15,11 @@ function SearchResults(props) {
   useEffect(
     function getRecipeData() {
       if (recipeQuery !== "") {
-        console.log(recipeQuery);
+        setRecipeDataIsLoading(true);
         const apiUrl = `${backendApiUtils.URL}/recipes/${recipeQuery}`;
         axios
           .get(apiUrl)
           .then((response) => {
-            console.log("search result response", response);
             const reviewsRequest =
               getReviewsRequestForAllReviewsInSearchResults(response.data);
             return axios
@@ -43,15 +42,15 @@ function SearchResults(props) {
     [recipeQuery]
   );
 
-  useEffect(() => {
-    console.log(`Recipe Data at useEffect: ${recipeData}`);
-  }, [recipeData]);
-
   return (
     <>
       <SearchBar onSearch={setRecipeQuery} />
       {recipeDataIsLoading ? (
-        <ThreeDots color="#F8D2CF" height={80} width={80} />
+        <div style={{ textAlign: "center" }}>
+          <div style={{ display: "inline-block" }}>
+            <ThreeDots color="#F8D2CF" height={150} width={150} />
+          </div>
+        </div>
       ) : recipeData === null ? null : (
         <RecipeResults data={recipeData} />
       )}
