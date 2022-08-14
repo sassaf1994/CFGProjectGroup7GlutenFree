@@ -7,11 +7,24 @@ body {
   font-family: "Bebas Neue", cursive;
   font-size: 55px;
   text-align: center;
-  padding-top: 75px
+  padding-top: 35px;
+  padding-bottom: 5px;
 }
 
 .text{
-  padding-top: 150px;
+  padding-top: 260px;
   font-size: 55px;
   text-align: center;
+  margin-top: 50px;
+}
+
+.text-background{
+  background-color: #f8d2cf;
+  display: block;
+  margin: 0 auto;
+  width: 650px;
+  height: 650px;
+  bottom: 250px;
+  top: 250px;
+  border-radius: 50%;
 }

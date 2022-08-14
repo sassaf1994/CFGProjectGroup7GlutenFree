@@ -54,7 +54,7 @@ function RecipeDetail() {
         <div className="row">
           <div className="col-8">
             <h1 className="recipeTitle">{data["Name"]} ⭐️ No ratings yet!</h1>
-            <a className="recipeLink" href={data["Recipe URL"]}>
+            <a className="recipeLink" href={data["Recipe URL"]} target="_blank" rel="noreferrer">
               See the full recipe at '{data["Source"]}' here
             </a>
           </div>
