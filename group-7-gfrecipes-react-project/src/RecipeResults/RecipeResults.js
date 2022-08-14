@@ -1,21 +1,24 @@
 import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function RecipeResults(props) {
-
+  
   return (
+    <><Helmet>
+      <title>EasyEats | Recipe</title>
+    </Helmet>
     <div className="container">
-      <div className="recipeView">
-        {props.data.map((singleRecipeData) => (
-          <RecipeCard
-            data={singleRecipeData}
-            key={singleRecipeData["Recipe ID"]}
-          />
-        ))}
-        {props.data.length === 0 ? <SearchError /> : null}
-      </div>
-    </div>
+        <div className="recipeView">
+          {props.data.map((singleRecipeData) => (
+            <RecipeCard
+              data={singleRecipeData}
+              key={singleRecipeData["Recipe ID"]} />
+          ))}
+          {props.data.length === 0 ? <SearchError /> : null}
+        </div>
+      </div></>
   );
 }
 
