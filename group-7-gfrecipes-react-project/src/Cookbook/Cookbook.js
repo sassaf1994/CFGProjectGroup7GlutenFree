@@ -14,8 +14,9 @@ function CookBook() {
             sizes="16x16"
           />
         </Helmet>
-        <div className="cookbook-title">
-          <h1>My Cookbook</h1>
+        <div>
+          <h1 className="cookbook-title">My Cookbook</h1>
+          <h2 className="savedRecipes">No saved recipes</h2>
         </div>
       </>
     </>

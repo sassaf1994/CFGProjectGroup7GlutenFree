@@ -10,3 +10,8 @@ body {
   padding-top: 75px;
   padding-bottom: 60px;
 }
+
+.savedRecipes {
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+}
