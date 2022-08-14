@@ -48,13 +48,25 @@ function RecipeDetail() {
       </div>
     );
   }
+  return <RecipeDetailImpl data={data} />;
+}
+
+export default RecipeDetail;
+
+export function RecipeDetailImpl(props) {
+  const data = props.data;
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-8">
             <h1 className="recipeTitle">{data["Name"]} ⭐️ No ratings yet!</h1>
-            <a className="recipeLink" href={data["Recipe URL"]} target="_blank" rel="noreferrer">
+            <a
+              className="recipeLink"
+              href={data["Recipe URL"]}
+              target="_blank"
+              rel="noreferrer"
+            >
               See the full recipe at '{data["Source"]}' here
             </a>
           </div>
@@ -82,8 +94,8 @@ function RecipeDetail() {
                     </div>
                     <div className="col">
                       <h2 className="niTitle">Ingredients</h2>
-                      {data["Ingredients"].map((singleIngredientLine) => (
-                        <IngredientView ingredient={singleIngredientLine} />
+                      {data["Ingredients"].map((singleIngredientLine, index) => (
+                        <IngredientView key={index} ingredient={singleIngredientLine} />
                       ))}
                     </div>
                   </div>
@@ -96,5 +108,3 @@ function RecipeDetail() {
     </>
   );
 }
-
-export default RecipeDetail;

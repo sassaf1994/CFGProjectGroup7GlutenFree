@@ -7,7 +7,7 @@ function Rating(props) {
   const [hoverRating, setHoverRating] = useState(0);
 
   const onMouseEnter = (index) => {
-    console.log('hover rating:', hoverRating)
+    console.log("hover rating:", hoverRating);
     setHoverRating(index);
   };
 
@@ -16,15 +16,15 @@ function Rating(props) {
   };
   const onSaveRating = (index) => {
     setRating(index);
-    saveRating()
+    saveRating();
     console.log(rating);
   };
 
   function saveRating() {
     let url = `http://127.0.0.1:5000/recipe/post_review`;
-    axios.put(url, {[props.recipeId]: rating}).then((response) => {
-        console.log(`Successfully sent rating: ${rating}`)
-    })
+    axios.put(url, { [props.recipeId]: rating }).then((response) => {
+      console.log(`Successfully sent rating: ${rating}`);
+    });
   }
 
   return (
@@ -36,7 +36,7 @@ function Rating(props) {
             <RatingIcon
               index={index}
               rating={rating}
-              key = {props.recipeId}
+              key={index}
               hoverRating={hoverRating}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
