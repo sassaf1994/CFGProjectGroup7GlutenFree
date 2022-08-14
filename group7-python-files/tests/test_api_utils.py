@@ -8,9 +8,7 @@ from api_utils import recipe_search, specific_recipe_search, api_call, specific_
     ingredients_of_recipes, retrieve_id
 from api_utils import recipe_url_of_recipes, source_of_recipes, images_url_of_recipes, nutrition_recipes, \
     compile_list_of_results, compile_single_result
-from response import response as sample_response, expected_compilation_of_response
-from response2 import response2 as sample_response_2
-from response3 import response3 as sample_response_3, expected_compilation_of_response_3
+from response import response as sample_response, response2 as sample_response_2, response3 as sample_response_3, expected_compilation_of_response, expected_compilation_of_response_3
 
 
 class TestRequests(unittest.TestCase):
