@@ -7,6 +7,7 @@ import { ThreeDots } from "react-loader-spinner";
 import IngredientView from "./IngredientView";
 import NutritionInfoView from "./NutritionInfoView";
 import MyCookBookButton from "./MyCookbookButton";
+import * as backendApiUtils from "../backendApiUtils";
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function RecipeDetail() {
 
   useEffect(
     function getRecipeData() {
-      let apiUrl = `https://east-eats-recipes.herokuapp.com/recipe/specific/${id}`;
+      let apiUrl = `${backendApiUtils.URL}/recipe/specific/${id}`;
       axios
         .get(apiUrl)
         .then((response) => {

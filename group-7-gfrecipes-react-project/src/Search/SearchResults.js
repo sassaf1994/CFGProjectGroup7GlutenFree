@@ -5,43 +5,37 @@ import "./Search.css";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import RecipeResults from "../RecipeResults/RecipeResults";
+import * as backendApiUtils from "../backendApiUtils";
 
 function SearchResults(props) {
   const [recipeData, setRecipeData] = useState(null);
   const [recipeQuery, setRecipeQuery] = useState("");
   const [recipeDataIsLoading, setRecipeDataIsLoading] = useState(false);
-  // const onSearch = (searchQuery) => {
-  //   console.log("Searching with query", searchQuery);
-  //   setRecipeQuery(searchQuery);
-  // };
-
-  function handleError(err) {
-    console.log("Error: ", err);
-  }
 
   useEffect(
     function getRecipeData() {
       if (recipeQuery !== "") {
         console.log(recipeQuery);
-        let apiUrl = `https://east-eats-recipes.herokuapp.com/recipes/${recipeQuery}`;
+        const apiUrl = `${backendApiUtils.URL}/recipes/${recipeQuery}`;
         axios
           .get(apiUrl)
           .then((response) => {
-            console.log({ response });
-            setRecipeData(response.data);
-            setRecipeDataIsLoading(false);
+            console.log("search result response", response);
+            const reviewsRequest =
+              getReviewsRequestForAllReviewsInSearchResults(response.data);
+            return axios
+              .put(`${backendApiUtils.URL}/recipe/reviews`, reviewsRequest)
+              .then((reviewsResponse) => {
+                const recipeDataWithReviews = response.data.map((item) => ({
+                  ...item,
+                  "Average Review": reviewsResponse.data[item["Recipe ID"]],
+                }));
+                setRecipeData(recipeDataWithReviews);
+                setRecipeDataIsLoading(false);
+              });
           })
           .catch(function (error) {
-            if (error.response) {
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            } else if (error.request) {
-              console.log(error.request);
-            } else {
-              console.log("Error", error.message);
-            }
-            console.log(error.config);
+            console.log("Error retrieving data from backend", error);
           });
         setRecipeData(null);
       }
@@ -94,5 +88,13 @@ function SearchBar(props) {
         </div>
       </div>
     </>
+  );
+}
+
+// Function creates object of {recipeid: recipeName} for PUT request
+// Could look at amending so we only send id
+function getReviewsRequestForAllReviewsInSearchResults(data) {
+  return Object.fromEntries(
+    data.map((recipe) => [recipe["Recipe ID"], recipe["Name"]])
   );
 }

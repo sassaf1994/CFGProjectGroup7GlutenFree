@@ -2,60 +2,17 @@ import Card from "react-bootstrap/Card";
 import "./RecipeView.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
+
 
 function RecipeResults(props) {
-  const [reviewData, setReviewData] = useState(0);
-  const [singleReviewData, setSingleReviewData] = useState("");
-
-  const recipesSentForReview = Object.fromEntries(
-    props.data.map((recipe) => [recipe["Recipe ID"], recipe["Name"]])
-  );
-
-  console.log("put request", reviewData);
-
-  // useEffect(
-  //   function getReviews() {
-  //     axios
-  //       .put(`http://127.0.0.1:5000/recipe/reviews`, recipesSentForReview)
-  //       .then((response) => {
-  //         setReviewData(response.data)
-  //         console.log(`review data: ${reviewData}`);
-  //       }).catch(function (error) {
-  //         if (error.response) {
-  //           console.log(error.response.data)
-  //           console.log(error.response.status)
-  //           console.log(error.response.headers)
-  //         } else if (error.request) {
-  //           console.log(error.request)
-  //         } else {
-  //           console.log('Error', error.message)
-  //         }
-  //         console.log(error.config)
-  //       });
-  //   },
-  //   [props.data]
-  // );
-
-  // useEffect(() => {
-  //   reviewData.map((singleRevData) => {
-  //     if (singleRevData === 0) {
-  //       setSingleReviewData("No Reviews set yet")
-  //     } else {
-  //       setSingleReviewData(`⭐️ ${singleReviewData}`)
-  //     }
-  //   }, [reviewData])
-  // })
 
   return (
     <div className="container">
       <div className="recipeView">
-        <ReviewScore review={reviewData} />
         {props.data.map((singleRecipeData) => (
           <RecipeCard
             data={singleRecipeData}
             key={singleRecipeData["Recipe ID"]}
-            // review={singleReviewData}
           />
         ))}
         {props.data.length === 0 ? <SearchError /> : null}
@@ -86,7 +43,7 @@ function RecipeCard(props) {
                 <Card.Title>{props.data["Name"]}</Card.Title>
               </div>
               <div className="col">
-                <Card.Text>{props.review}</Card.Text>
+                <Card.Text>Avg. Review {props.data["Average Review"] ?? "undef"}</Card.Text>
               </div>
             </div>
           </Card.Body>
