@@ -19,6 +19,13 @@ You do not need to do anything to run our backend service as this is deployed to
 * From the 'group-7-gfrecipes-react-project' directory, run 'npm install' 
 * Run 'npm start' to start the development server
 
+If you wish to access the reviews database where our data for ratings of recipes is being stored and uploaded, please use the following information in MySQL workbench by click Database//Connect to Database in the toolbar:
+
+Hostname: reviews.cx9hvngv0zug.eu-west-2.rds.amazonaws.com
+Port: 3306
+Username: admin
+Password: purple123
+
 
 ## How to use the project
 
