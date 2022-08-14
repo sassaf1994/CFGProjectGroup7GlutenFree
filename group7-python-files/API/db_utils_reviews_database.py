@@ -1,5 +1,5 @@
 import mysql.connector
-from config import USER, PASSWORD, HOST
+from config_reviews_database import USER, PASSWORD, HOST
 
 
 # Error handling if not connecting to DB(eg password wrong)

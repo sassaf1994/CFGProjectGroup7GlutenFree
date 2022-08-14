@@ -2,8 +2,6 @@ import requests
 import re
 import sys
 sys.path.insert(0, '../tests/')
-from response import response, response3
-from pprint import pprint as pp
 
 
 class HealthTypeError(ValueError):
