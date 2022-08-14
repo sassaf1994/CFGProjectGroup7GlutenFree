@@ -16,8 +16,8 @@ Our site also allows users to rate recipes.
 ## How to run this project
 
 You do not need to do anything to run our backend service as this is deployed to the cloud, but please follow the steps below to run the front end application:s
-* From the 'group-7-gfrecipes-react-project' directory, run 'npm install' 
-* Run 'npm start' to start the development server
+* From the 'group-7-gfrecipes-react-project' directory, run 'npm install' in the terminal
+* Run 'npm start' in the terminal to start the development server
 
 If you wish to access the reviews database where our data for ratings of recipes is being stored and uploaded, please use the following information in MySQL workbench by click Database // Connect to Database in the toolbar:
 
